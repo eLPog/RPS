@@ -1,0 +1,42 @@
+.normalButton{
+    text-decoration: none;
+    background-color: teal;
+    color: white;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid teal;
+    cursor: pointer;
+    margin-top: 2rem;
+    box-shadow: 3px 3px 10px #000000 ;
+}
+.normalButton:hover,
+.normalButton:active {
+    background-color: #11acac;
+    border-color: #11acac;
+}
+.normalButton:disabled {
+    background-color: #c2e7f0;
+    color: darkgray;
+    cursor: not-allowed;
+}
+.dangerButton{
+    text-decoration: none;
+    background-color: rgba(220,0,29,0.82);
+    color: white;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid indianred;
+    cursor: pointer;
+    margin-top: 2rem;
+    box-shadow: 3px 3px 10px red ;
+
+}
+.dangerButton:hover,
+.dangerButton:active {
+    background-color: rgba(255,20,57,0.82);
+    border-color: #11acac;
+}
+.dangerButton:disabled {
+    background-color: rgba(255,139,114,0.82);
+    color: darkgray;
+}

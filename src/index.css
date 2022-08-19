@@ -16,8 +16,12 @@ label, input {
     width: 50%;
     max-width: 200px;
 }
-
-
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
 .selection {
     font-size: 8rem;
@@ -41,15 +45,15 @@ label, input {
     margin:1rem 2rem;
 }
 .results {
-    display: grid;
-    justify-content: center;
-    grid-template-columns: repeat(2, 1fr);
-    margin-top: 5rem;
-    font-size: 1.4rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
 }
 .result-score {
     font-size: 1.1rem;
     font-weight: bolder;
+    display: block;
 }
 
 .result-selection {
@@ -65,4 +69,24 @@ label, input {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-size: 2rem;
+
 }
+.history {
+    border:1px solid red;
+    display: flex;
+    justify-content: center;
+}
+.historyList {
+    list-style: none;
+}
+.playerName {
+    display: block;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+.nameToSelect {
+    font-size: 2.5rem;
+    color: indianred;
+}
+
