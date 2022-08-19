@@ -61,18 +61,24 @@ function App() {
         <div className="selectWall">
 
           <div className="selections">
-            <div>
-              <label htmlFor="player1Name">Player 1 name</label>
-              <input className="player" id="player1Name" onChange={player1NameHandler} />
-            </div>
+            {!player1Name ? (
+              <div>
+                <label htmlFor="player1Name">Player 1 name</label>
+                <input className="player" id="player1Name" onChange={player1NameHandler} />
+              </div>
+            ) : null}
+
             <span className="playerName">{player1Name}</span>
             {choices.map((el) => <button className="selection" key={el.id} onClick={() => player1ChoiceHandler(el.emoji)}>{el.emoji}</button>)}
           </div>
           <div className="selections">
-            <div>
-              <label htmlFor="player1Name">Player 2 name</label>
-              <input className="player" id="player2Name" onChange={player2NameHandler} />
-            </div>
+            {!player2Name ? (
+              <div>
+                <label htmlFor="player1Name">Player 2 name</label>
+                <input className="player" id="player2Name" onChange={player2NameHandler} />
+              </div>
+            ) : null}
+
             <span className="playerName">{player2Name}</span>
             {choices.map((el) => <button className="selection" key={el.id} onClick={() => player2ChoiceHandler(el.emoji)}>{el.emoji}</button>)}
           </div>
