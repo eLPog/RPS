@@ -76,12 +76,21 @@ function App() {
             <span className="playerName">{player2Name}</span>
             {choices.map((el) => <button className="selection" key={el.id} onClick={() => player2ChoiceHandler(el.emoji)}>{el.emoji}</button>)}
           </div>
+        </div>
+        <div className="playZone">
+          <span className="instruction">
+            {player1Choice ? player2Name : player1Name}
+            {' '}
+            select your sign
+          </span>
+          {player1Choice && player2Choice ? <button onClick={() => checkWinner(player1Choice, player2Choice)}> Play </button> : null}
+
           <h2>
             The winner is
             {winner}
           </h2>
-          <button onClick={() => checkWinner(player1Choice, player2Choice)}> Play </button>
         </div>
+
         <div className="results">
           <div>
             <span className="result-score">

@@ -60,3 +60,9 @@ label, input {
     opacity:1;
     font-size: 3.4rem;
 }
+.playZone {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
