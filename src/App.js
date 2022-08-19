@@ -25,6 +25,8 @@ function App() {
   const [player1Choice, setPlayer1Choice] = useState(null);
   const [player2Choice, setPlayer2Choice] = useState(null);
   const [winner, setWinner] = useState(null);
+  const [player1Score, setPlayer1Score] = useState(0);
+  const [player2Score, setPlayer2Score] = useState(0);
 
   const player1NameHandler = (e) => setPlayer1Name(e.target.value);
   const player2NameHandler = (e) => setPlayer2Name(e.target.value);
@@ -38,13 +40,19 @@ function App() {
   function checkWinner(choicePlayer1, choicePlayer2) {
     const player1 = choices.find((el) => el.emoji === choicePlayer1);
     const player2 = choices.find((el) => el.emoji === choicePlayer2);
-    console.log(player1, player2);
     if (player1.beat === player2.name) {
       setWinner(player1Name);
+      setPlayer1Score(((prevState) => prevState + 1));
     }
     if (player2.beat === player1.name) {
       setWinner(player2Name);
+      setPlayer2Score(((prevState) => prevState + 1));
     }
+    if (player1.name === player2.name) {
+      setWinner('Draw');
+    }
+    setPlayer1Choice(null);
+    setPlayer2Choice(null);
   }
 
   return (
@@ -76,14 +84,27 @@ function App() {
         </div>
         <div className="results">
           <div>
-            <span className="result-score">0 </span>
+            <span className="result-score">
+              {player1Name}
+              {' '}
+              score:
+              {' '}
+              {player1Score}
+            </span>
             <span className="result-score">
               {player1Choice}
               {' '}
             </span>
           </div>
           <div>
-            <span className="result-score">0</span>
+            <span className="result-score">
+              {' '}
+              {player2Name}
+              {' '}
+              score:
+              {' '}
+              {player2Score}
+            </span>
             <span className="result-score">{player2Choice}</span>
           </div>
         </div>
