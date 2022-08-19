@@ -32,9 +32,13 @@ function App() {
   const [resultsHistory, setResultsHistory] = useState([]);
   const [gameNumber, setGameNumber] = useState(1);
   const [lastGame, setLastGame] = useState(null);
+  const [namesAdded, setNamesAdded] = useState(false);
 
   const player1NameHandler = (e) => setPlayer1Name(e.target.value);
   const player2NameHandler = (e) => setPlayer2Name(e.target.value);
+  const namesAddedHandler = () => {
+    setNamesAdded(true);
+  };
 
   const player1ChoiceHandler = (value) => {
     setPlayer1Choice(value);
@@ -84,20 +88,21 @@ function App() {
   return (
     <div className="App">
       <main>
-        <div className="selectWall">
 
+        <div className="selectWall">
           <div className="selections">
-            {!player1Name ? (
+            {!namesAdded ? (
               <div>
                 <label htmlFor="player1Name">Player 1 name</label>
                 <input className="player" id="player1Name" onChange={player1NameHandler} />
               </div>
             ) : null}
+
             <span className="playerName">{player1Name}</span>
             {choices.map((el) => <button className="selection" key={el.id} onClick={() => player1ChoiceHandler(el.emoji)}>{el.emoji}</button>)}
           </div>
           <div className="selections">
-            {!player2Name ? (
+            {!namesAdded ? (
               <div>
                 <label htmlFor="player1Name">Player 2 name</label>
                 <input className="player" id="player2Name" onChange={player2NameHandler} />
@@ -105,10 +110,12 @@ function App() {
             ) : null}
 
             <span className="playerName">{player2Name}</span>
+
             {choices.map((el) => <button className="selection" key={el.id} onClick={() => player2ChoiceHandler(el.emoji)}>{el.emoji}</button>)}
           </div>
         </div>
-        {player1Name && player2Name ? (
+        {player1Name && player2Name && !namesAdded ? <Button text="SAVE" onClick={namesAddedHandler} /> : null}
+        {namesAdded ? (
           <>
             <div className="playZone">
               {!roundFinished && (!player1Choice || !player2Choice) ? (
@@ -165,13 +172,14 @@ function App() {
               <ul className="historyList">
                 {resultsHistory.map((el) => (
                   <li key={el.gameID}>
-                    Game number:
-                    {' '}
-                    {el.gameNumber}
-                    ,
-                    Winner:
-                    {' '}
-                    {el.winner}
+                    <span className="gameNo">
+                      Game no.
+                      {' '}
+                      {el.gameNumber}
+                    </span>
+                    <span className="winnerName">
+                      {el.winner}
+                    </span>
                   </li>
                 ))}
               </ul>

@@ -16,7 +16,7 @@ label, input {
     width: 50%;
     max-width: 200px;
 }
-.main {
+main {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -73,12 +73,16 @@ label, input {
 
 }
 .history {
-    border:1px solid red;
     display: flex;
     justify-content: center;
 }
 .historyList {
     list-style: none;
+}
+.historyList li {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
 }
 .playerName {
     display: block;
@@ -93,4 +97,11 @@ label, input {
     color: indianred;
     font-size: 3.2rem;
 }
+.gameNo {
+    font-size: 1.1rem;
+    color:indianred;
+}
+.winnerName {
+    font-size: 1.3rem;
 
+}
