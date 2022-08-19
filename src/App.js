@@ -1,26 +1,9 @@
 import './App.css';
 import { useState } from 'react';
 import { Button } from './components/commons/Button/Button';
+import { choices } from './assets/database/choices';
 
 function App() {
-  const choices = [{
-    name: 'scissors',
-    emoji: '✌',
-    beat: 'paper',
-    id: 1,
-  }, {
-    name: 'rock',
-    emoji: '👊',
-    beat: 'scissors',
-    id: 2,
-
-  }, {
-    name: 'paper',
-    emoji: '✋',
-    beat: 'rock',
-    id: 3,
-
-  }];
   const [player1Name, setPlayer1Name] = useState(null);
   const [player2Name, setPlayer2Name] = useState(null);
   const [player1Choice, setPlayer1Choice] = useState(null);
@@ -94,7 +77,6 @@ function App() {
   return (
     <div className="App">
       <main>
-
         <div className={`selectWall ${roundFinished && 'blocked'}`}>
           <div className="selections">
             {!namesAdded ? (

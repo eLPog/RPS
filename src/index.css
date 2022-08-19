@@ -15,10 +15,17 @@ body {
     animation: showElement 2500ms ease-in;
 
 }
-label, input {
+input {
     margin:1rem 2rem;
     width: 50%;
     max-width: 200px;
+    border:2px solid green;
+    border-radius: 20px;
+    background-color: lightgoldenrodyellow;
+}
+label {
+    font-size: 1.5rem;
+    font-family: Calibri;
 }
 .selected {
     color:green;
