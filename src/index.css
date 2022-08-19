@@ -1,0 +1,62 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+    color:#ffffff;
+}
+.namesInput {
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+label, input {
+    margin:1rem 2rem;
+    width: 50%;
+    max-width: 200px;
+}
+
+
+
+.selection {
+    font-size: 8rem;
+    background-color: black;
+    cursor:pointer;
+    transition: 200ms;
+}
+.selection:hover {
+    transform: scale(1.2);
+}
+.playerName {
+    font-size: 1.5rem;
+    margin-right: 2rem;
+}
+.selectWall {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(2, 1fr);
+}
+.selections {
+    margin:1rem 2rem;
+}
+.results {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 5rem;
+    font-size: 1.4rem;
+}
+.result-score {
+    font-size: 1.1rem;
+    font-weight: bolder;
+}
+
+.result-selection {
+    font-size: 3rem;
+    opacity:0.5;
+}
+.result-selection.winner {
+    opacity:1;
+    font-size: 3.4rem;
+}
