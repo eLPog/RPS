@@ -104,7 +104,7 @@ function App() {
               </div>
             ) : null}
 
-            <span className="playerName">{player1Name}</span>
+            <span className={`playerName ${player1Choice && 'selected'}`}>{player1Name}</span>
             {choices.map((el) => <button className="selection" key={el.id} onClick={() => player1ChoiceHandler(el.emoji)}>{el.emoji}</button>)}
           </div>
           <div className="selections">
@@ -115,7 +115,7 @@ function App() {
               </div>
             ) : null}
 
-            <span className="playerName">{player2Name}</span>
+            <span className={`playerName ${player2Choice && 'selected'}`}>{player2Name}</span>
 
             {choices.map((el) => <button className="selection" key={el.id} onClick={() => player2ChoiceHandler(el.emoji)}>{el.emoji}</button>)}
           </div>
