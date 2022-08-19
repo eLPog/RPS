@@ -41,9 +41,15 @@ function App() {
   };
 
   const player1ChoiceHandler = (value) => {
+    if (roundFinished) {
+      return;
+    }
     setPlayer1Choice(value);
   };
   const player2ChoiceHandler = (value) => {
+    if (roundFinished) {
+      return;
+    }
     setPlayer2Choice(value);
   };
   function newGame() {
@@ -89,7 +95,7 @@ function App() {
     <div className="App">
       <main>
 
-        <div className="selectWall">
+        <div className={`selectWall ${roundFinished && 'blocked'}`}>
           <div className="selections">
             {!namesAdded ? (
               <div>
@@ -114,18 +120,16 @@ function App() {
             {choices.map((el) => <button className="selection" key={el.id} onClick={() => player2ChoiceHandler(el.emoji)}>{el.emoji}</button>)}
           </div>
         </div>
-        {player1Name && player2Name && !namesAdded ? <Button text="SAVE" onClick={namesAddedHandler} /> : null}
+        <div className="saveButton">
+          {player1Name && player2Name && !namesAdded ? <Button text="SAVE" onClick={namesAddedHandler} /> : null}
+        </div>
         {namesAdded ? (
           <>
             <div className="playZone">
               {!roundFinished && (!player1Choice || !player2Choice) ? (
                 <>
-                  {' '}
-                  <span className="nameToSelect">
-                    {player1Choice ? player2Name : player1Name}
-                  </span>
                   <span className="instruction">
-                    select your sign
+                    Select your signs
                   </span>
                 </>
               ) : null }

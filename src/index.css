@@ -5,29 +5,30 @@ body {
     align-items: center;
     background-color: #000000;
     color:#ffffff;
+    animation: showElement 2300ms ease-in;
+
 }
 .namesInput {
     margin: 2rem;
     display: flex;
     flex-direction: column;
+    animation: showElement 2500ms ease-in;
+
 }
 label, input {
     margin:1rem 2rem;
     width: 50%;
     max-width: 200px;
 }
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
+
 
 .selection {
     font-size: 8rem;
     background-color: black;
     cursor:pointer;
     transition: 200ms;
+    animation: showElement 2300ms ease-in;
+
 }
 .selection:hover {
     transform: scale(1.2);
@@ -40,6 +41,7 @@ main {
     display: grid;
     justify-content: center;
     grid-template-columns: repeat(2, 1fr);
+
 }
 .selections {
     margin:1rem 2rem;
@@ -49,6 +51,8 @@ main {
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
+    animation: showElement 2300ms ease-in;
+
 }
 .result-score {
     font-size: 1.1rem;
@@ -70,6 +74,8 @@ main {
     justify-content: center;
     align-items: center;
     font-size: 2rem;
+    animation: showElement 2300ms ease-in;
+
 
 }
 .history {
@@ -89,10 +95,6 @@ main {
     margin-bottom: 3rem;
     text-align: center;
 }
-.nameToSelect {
-    font-size: 2.5rem;
-    color: indianred;
-}
 .winner {
     color: indianred;
     font-size: 3.2rem;
@@ -104,4 +106,20 @@ main {
 .winnerName {
     font-size: 1.3rem;
 
+}
+.saveButton {
+    text-align: center;
+}
+.blocked {
+    opacity: 0.15;
+}
+
+
+@keyframes showElement {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
