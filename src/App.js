@@ -1,5 +1,6 @@
 import './App.css';
 import { useState } from 'react';
+import { Button } from './components/commons/Button/Button';
 
 function App() {
   const choices = [{
@@ -117,14 +118,15 @@ function App() {
                 </>
               ) : null }
 
-              {player1Choice && player2Choice ? <button onClick={() => checkWinner(player1Choice, player2Choice)}> Play </button> : null}
+              {player1Choice && player2Choice ?
+                <Button text="Play" onClick={() => checkWinner(player1Choice, player2Choice)} /> : null}
               {roundFinished && (
               <>
                 <h2 className="winnerName">
                   The winner is
                   {winner}
                 </h2>
-                <button onClick={newGame}>Next game</button>
+                <Button text="Next game" onClick={newGame} />
               </>
 
               )}
