@@ -31,6 +31,7 @@ function App() {
   const [roundFinished, setRoundFinished] = useState(false);
   const [resultsHistory, setResultsHistory] = useState([]);
   const [gameNumber, setGameNumber] = useState(1);
+  const [lastGame, setLastGame] = useState(null);
 
   const player1NameHandler = (e) => setPlayer1Name(e.target.value);
   const player2NameHandler = (e) => setPlayer2Name(e.target.value);
@@ -69,6 +70,10 @@ function App() {
       gameStats.winner = 'draw';
     }
     resultsHistory.push(gameStats);
+    setLastGame({
+      player1: gameStats.selectedSignPlayer1,
+      player2: gameStats.selectedSignPlayer2,
+    });
     setResultsHistory((prevState) => prevState);
     setGameNumber((prevState) => prevState + 1);
     setRoundFinished(true);
@@ -122,9 +127,16 @@ function App() {
                 <Button text="Play" onClick={() => checkWinner(player1Choice, player2Choice)} /> : null}
               {roundFinished && (
               <>
+                <span className="versus">
+                  {lastGame.player1}
+                  {' '}
+                  vs.
+                  {lastGame.player2}
+                </span>
                 <h2 className="winnerName">
                   The winner is
-                  {winner}
+                  {' '}
+                  <span className="winner">{winner}</span>
                 </h2>
                 <Button text="Next game" onClick={newGame} />
               </>

@@ -89,4 +89,8 @@ label, input {
     font-size: 2.5rem;
     color: indianred;
 }
+.winner {
+    color: indianred;
+    font-size: 3.2rem;
+}
 
