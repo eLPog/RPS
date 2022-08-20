@@ -27,13 +27,17 @@ function App() {
   function deletePlayersNames() {
     setPlayer1Name(null);
     setPlayer2Name(null);
+    setPlayer1Score(0);
+    setPlayer2Score(0);
     setNamesAdded(false);
+    setResultsHistory([]);
     localStorage.clear();
   }
   function resetHistory() {
-    setResultsHistory([]);
     setPlayer1Score(0);
     setPlayer2Score(0);
+    setResultsHistory([]);
+    setGameNumber(1);
     localStorage.removeItem('history');
   }
 
@@ -107,7 +111,7 @@ function App() {
 
   return (
     <div className="App">
-      <Menu deleteNames={deletePlayersNames} resetHistory={resetHistory} />
+      <Menu deleteNames={deletePlayersNames} resetHistory={resetHistory} namesAdded={namesAdded} />
       <main>
         <div className={`selectWall ${roundFinished && 'blocked'}`}>
           <div className="selections">
