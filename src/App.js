@@ -24,6 +24,18 @@ function App() {
     setNamesAdded(true);
     localStorage.setItem('players', JSON.stringify({ player1: player1Name, player2: player2Name }));
   };
+  function deletePlayersNames() {
+    setPlayer1Name(null);
+    setPlayer2Name(null);
+    setNamesAdded(false);
+    localStorage.clear();
+  }
+  function resetHistory() {
+    setResultsHistory([]);
+    setPlayer1Score(0);
+    setPlayer2Score(0);
+    localStorage.removeItem('history');
+  }
 
   useEffect(() => {
     let playersNames = localStorage.getItem('players');
@@ -37,6 +49,7 @@ function App() {
     gamesHistory = JSON.parse(gamesHistory);
     if (gamesHistory) {
       setResultsHistory(gamesHistory);
+      setGameNumber(gamesHistory.length + 1);
     }
   }, []);
   const player1ChoiceHandler = (value) => {
@@ -94,7 +107,7 @@ function App() {
 
   return (
     <div className="App">
-      <Menu />
+      <Menu deleteNames={deletePlayersNames} resetHistory={resetHistory} />
       <main>
         <div className={`selectWall ${roundFinished && 'blocked'}`}>
           <div className="selections">

@@ -1,9 +1,9 @@
-import styles from './Button.module.css';
+import './Button.css';
 
 export function Button(props) {
   return (
     <button
-      className={props.type ?? styles.normalButton}
+      className="normalButton"
       onClick={props.onClick}
       disabled={props.disabled}
     >

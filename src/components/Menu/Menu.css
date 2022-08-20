@@ -1,76 +1,13 @@
 .menu {
-    position: fixed;
-    top:5rem;
-    left:2rem;
-    z-index: 99;
-}
-.list {
-    list-style: none;
-    animation: showMenu 1s ease-in;
-}
-.list li {
-    filter:grayscale(100%) opacity(0.7);
-}
-.list li:hover {
-    cursor: pointer;
-    filter:grayscale(0) opacity(1);
-}
-
-
-.menuButtonContainer {
-    height: 100%;
-    width: 30px;
-    cursor: pointer;
-    flex-direction: column;
-    justify-content: center;
+    display: flex;
     align-items: center;
-    color:white;
-}
-#menuToggle {
-    display: none;
-}
-.menuButton,
-.menuButton::before,
-.menuButton::after {
-    background-color: yellow;
-    width: 30px;
-    height: 5px;
-    display: block;
-    position: absolute;
-    transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
-    border-radius: 2px;
+    justify-content: center;
+    gap:2rem;
 }
 
-.menuButton::after {
-    content:'';
-    margin-top:8px;
-}
-.menuButton::before {
-    content:'';
-    margin-top:-8px;
-}
-
-#menuToggle:checked + .menuButtonContainer .menuButton::before {
-    margin-top: 0;
-    transform: rotate(405deg);
-}
-
-#menuToggle:checked + .menuButtonContainer .menuButton {
-    background: var(--third-color);
-
-}
-
-#menuToggle:checked + .menuButtonContainer .menuButton::after {
-    margin-top: 0;
-    transform: rotate(-405deg);
-}
-@keyframes showMenu {
-    from {
-        opacity: 0;
+@media only screen and (max-width: 720px){
+    .menu {
+        flex-direction: column;
+        gap:1rem;
     }
-    to {
-        opacity: 1;
-    }
-
 }
-
