@@ -1,0 +1,14 @@
+.results {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    animation: showElement 2300ms ease-in;
+
+}
+.result-score {
+    font-size: 1.5rem;
+    font-weight: bolder;
+    display: block;
+    color: var(--third-color);
+}

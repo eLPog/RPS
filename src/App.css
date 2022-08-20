@@ -61,20 +61,7 @@ input:focus {
 .selections {
     margin:1rem 2rem;
 }
-.results {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-    animation: showElement 2300ms ease-in;
 
-}
-.result-score {
-    font-size: 1.5rem;
-    font-weight: bolder;
-    display: block;
-    color: var(--third-color);
-}
 
 .result-selection {
     font-size: 3rem;
@@ -94,18 +81,7 @@ input:focus {
 
 
 }
-.history {
-    display: flex;
-    justify-content: center;
-}
-.historyList {
-    list-style: none;
-}
-.historyList li {
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-}
+
 .playerName {
     display: block;
     margin-bottom: 3rem;
@@ -115,14 +91,7 @@ input:focus {
     color: var(--second-color);
     font-size: 3.2rem;
 }
-.gameNo {
-    font-size: 1.1rem;
-    color:var(--second-color);;
-}
-.winnerName {
-    font-size: 1.3rem;
 
-}
 .saveButton {
     text-align: center;
 }

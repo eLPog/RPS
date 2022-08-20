@@ -1,0 +1,20 @@
+.history {
+    display: flex;
+    justify-content: center;
+}
+.historyList {
+    list-style: none;
+}
+.historyList li {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.gameNo {
+    font-size: 1.1rem;
+    color:var(--second-color);;
+}
+.winnerName {
+    font-size: 1.3rem;
+
+}

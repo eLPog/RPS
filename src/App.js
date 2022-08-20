@@ -4,6 +4,8 @@ import { Button } from './components/commons/Button/Button';
 import { choices } from './assets/database/choices';
 import { Menu } from './components/Menu/Menu';
 import { Results } from './components/Results/Results';
+import { History } from './components/History/History';
+import { PlayZone } from './components/PlayZone/PlayZone';
 
 function App() {
   const [player1Name, setPlayer1Name] = useState(null);
@@ -145,71 +147,17 @@ function App() {
         </div>
         {namesAdded ? (
           <>
-            <div className="playZone">
-              {!roundFinished && (!player1Choice || !player2Choice) ? (
-                <>
-                  <span className="instruction">
-                    Select your signs
-                  </span>
-                </>
-              ) : null }
-
-              {player1Choice && player2Choice ?
-                <Button text="Play" onClick={() => checkWinner(player1Choice, player2Choice)} /> : null}
-              {roundFinished && (
-              <>
-                <span className="versus">
-                  {lastGame.player1}
-                  {' '}
-                  vs.
-                  {lastGame.player2}
-                </span>
-                <h2 className="winnerName">
-                  The winner is
-                  {' '}
-                  <span className="winner">{winner}</span>
-                </h2>
-                <Button text="Next game" onClick={newGame} />
-              </>
-
-              )}
-
-            </div>
-            {/* <div className="results"> */}
-            {/*  <span className="result-score"> */}
-            {/*    {player1Name} */}
-            {/*    {' '} */}
-            {/*    score: */}
-            {/*    {' '} */}
-            {/*    {player1Score} */}
-            {/*  </span> */}
-            {/*  <span className="result-score"> */}
-            {/*    {' '} */}
-            {/*    {player2Name} */}
-            {/*    {' '} */}
-            {/*    score: */}
-            {/*    {' '} */}
-            {/*    {player2Score} */}
-            {/*  </span> */}
-            {/* </div> */}
+            <PlayZone
+              roundFinished={roundFinished}
+              player1Choice={player1Choice}
+              player2Choice={player2Choice}
+              lastGame={lastGame}
+              winner={winner}
+              newGame={newGame}
+              checkWinner={checkWinner}
+            />
             <Results player1Name={player1Name} player2Name={player2Name} player1Score={player1Score} player2Score={player2Score} />
-            <div className="history">
-              <ul className="historyList">
-                {resultsHistory.map((el) => (
-                  <li key={el.gameID}>
-                    <span className="gameNo">
-                      Game no.
-                      {' '}
-                      {el.gameNumber}
-                    </span>
-                    <span className="winnerName">
-                      {el.winner}
-                    </span>
-                    {el.dateOfPlay}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <History resultsHistory={resultsHistory} />
           </>
         ) : null}
 
