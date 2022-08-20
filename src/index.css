@@ -21,14 +21,14 @@ body {
 }
 
 body::-webkit-scrollbar {
-    width: 0.25rem;
+    width: 0.4rem;
 
 }
 body::-webkit-scrollbar-track {
-    width: 0.25rem;
+    background-color: var(--third-color);
 
 }
 body::-webkit-scrollbar-thumb {
-    width: 0.25rem;
+    background-color: var(--second-color);
 
 }
