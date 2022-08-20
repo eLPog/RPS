@@ -1,0 +1,17 @@
+.playZone {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    animation: showElement 2300ms ease-in;
+
+
+}
+.winnerName {
+    font-size: 1.3rem;
+}
+.winner {
+    color: var(--second-color);
+    font-size: 3.2rem;
+}

@@ -1,11 +1,12 @@
 import { Button } from '../commons/Button/Button';
+import './PlayZone.css';
 
 export function PlayZone(props) {
   return (
     <div className="playZone">
       {!props.roundFinished && (!props.player1Choice || !props.player2Choice) ? (
         <>
-          <span className="instruction">
+          <span>
             Select your signs
           </span>
         </>
@@ -15,7 +16,7 @@ export function PlayZone(props) {
         <Button text="Play" onClick={() => props.checkWinner(props.player1Choice, props.player2Choice)} /> : null}
       {props.roundFinished && (
         <>
-          <span className="versus">
+          <span>
             {props.lastGame.player1}
             {' '}
             vs.

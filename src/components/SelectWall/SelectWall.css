@@ -1,0 +1,22 @@
+.selectWall {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(2, 1fr);
+    margin:3rem 0;
+
+}
+.blocked {
+    opacity: 0.15;
+}
+.saveButton {
+    text-align: center;
+}
+
+@media only screen and (max-width: 768px){
+    .selectWall {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}

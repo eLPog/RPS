@@ -5,63 +5,6 @@
     animation: showElement 2500ms ease-in;
 
 }
-input {
-    font-family: inherit;
-    width: 100%;
-    border: 0;
-    border-bottom: 2px solid gray;
-    outline: 0;
-    font-size: 1.3rem;
-    color: var(--first-color);
-    padding: 7px 0;
-    background: transparent;
-}
-
-label {
-    display: block;
-    transition: 0.2s;
-    font-size: 1rem;
-    color: var(--second-color);
-    font-weight:700;
-    margin-bottom: 0.5rem;
-}
-input:focus {
-    background-color: darkseagreen;
-    opacity: 0.5;
-
-}
-
-.selected {
-    color:green;
-}
-
-
-.selection {
-    font-size: 8rem;
-    background-color: var(--first-bg-color);
-    cursor:pointer;
-    transition: 200ms;
-    animation: showElement 2300ms ease-in;
-
-}
-.selection:hover {
-    transform: scale(1.2);
-}
-.playerName {
-    font-size: 1.5rem;
-    margin-right: 2rem;
-}
-.selectWall {
-    display: grid;
-    justify-content: center;
-    grid-template-columns: repeat(2, 1fr);
-    margin:3rem 0;
-
-}
-.selections {
-    margin:1rem 2rem;
-}
-
 
 .result-selection {
     font-size: 3rem;
@@ -71,54 +14,8 @@ input:focus {
     opacity:1;
     font-size: 3.4rem;
 }
-.playZone {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem;
-    animation: showElement 2300ms ease-in;
 
 
-}
-
-.playerName {
-    display: block;
-    margin-bottom: 3rem;
-    text-align: center;
-}
-.winner {
-    color: var(--second-color);
-    font-size: 3.2rem;
-}
-
-.saveButton {
-    text-align: center;
-}
-.blocked {
-    opacity: 0.15;
-}
 
 
-@keyframes showElement {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
 
-@media only screen and (max-width: 1200px){
-.selection {
-    font-size: 4rem;
-}
-}
-@media only screen and (max-width: 768px){
-.selectWall {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-}

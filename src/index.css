@@ -37,3 +37,11 @@ body::-webkit-scrollbar-thumb {
         font-size: 10px;
     }
 }
+@keyframes showElement {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

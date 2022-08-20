@@ -6,6 +6,7 @@ import { Menu } from './components/Menu/Menu';
 import { Results } from './components/Results/Results';
 import { History } from './components/History/History';
 import { PlayZone } from './components/PlayZone/PlayZone';
+import { SelectWall } from './components/SelectWall/SelectWall';
 
 function App() {
   const [player1Name, setPlayer1Name] = useState(null);
@@ -117,34 +118,19 @@ function App() {
     <div className="App">
       {!roundFinished && <Menu deleteNames={deletePlayersNames} resetHistory={resetHistory} namesAdded={namesAdded} />}
       <main>
-        <div className={`selectWall ${roundFinished && 'blocked'}`}>
-          <div className="selections">
-            {!namesAdded ? (
-              <div>
-                <label htmlFor="player1Name">Name</label>
-                <input className="player" placeholder="Player 1" required id="player1Name" onChange={player1NameHandler} />
-              </div>
-            ) : null}
-
-            <span className={`playerName ${player1Choice && 'selected'}`}>{player1Name}</span>
-            {choices.map((el) => <button className="selection" key={el.id} onClick={() => player1ChoiceHandler(el.emoji)}>{el.emoji}</button>)}
-          </div>
-          <div className="selections">
-            {!namesAdded ? (
-              <div>
-                <label htmlFor="player1Name">Name</label>
-                <input className="player" placeholder="Player 2" required id="player2Name" onChange={player2NameHandler} />
-              </div>
-            ) : null}
-
-            <span className={`playerName ${player2Choice && 'selected'}`}>{player2Name}</span>
-
-            {choices.map((el) => <button className="selection" key={el.id} onClick={() => player2ChoiceHandler(el.emoji)}>{el.emoji}</button>)}
-          </div>
-        </div>
-        <div className="saveButton">
-          {player1Name && player2Name && !namesAdded ? <Button text="SAVE" onClick={namesAddedHandler} /> : null}
-        </div>
+        <SelectWall
+          roundFinished={roundFinished}
+          namesAdded={namesAdded}
+          player1Choice={player1Choice}
+          player2Choice={player2Choice}
+          player1Name={player1Name}
+          player2Name={player2Name}
+          player1ChoiceHandler={player1ChoiceHandler}
+          player2ChoiceHandler={player2ChoiceHandler}
+          player1NameHandler={player1NameHandler}
+          player2NameHandler={player2NameHandler}
+          namesAddedHandler={namesAddedHandler}
+        />
         {namesAdded ? (
           <>
             <PlayZone

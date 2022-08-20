@@ -1,0 +1,59 @@
+.selections {
+    margin:1rem 2rem;
+}
+.selected {
+    color:green;
+}
+
+input {
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid gray;
+    outline: 0;
+    font-size: 1.3rem;
+    color: var(--first-color);
+    padding: 7px 0;
+    background: transparent;
+}
+
+label {
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: var(--second-color);
+    font-weight:700;
+    margin-bottom: 0.5rem;
+}
+input:focus {
+    background-color: darkseagreen;
+    opacity: 0.5;
+
+}
+.selection {
+    font-size: 8rem;
+    background-color: var(--first-bg-color);
+    cursor:pointer;
+    transition: 200ms;
+    animation: showElement 2300ms ease-in;
+
+}
+.selection:hover {
+    transform: scale(1.2);
+}
+.playerName {
+    font-size: 1.5rem;
+    margin-right: 2rem;
+}
+.playerName {
+    display: block;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+
+@media only screen and (max-width: 1200px){
+    .selection {
+        font-size: 4rem;
+    }
+}
