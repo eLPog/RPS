@@ -1,8 +1,6 @@
 import { Button } from '../commons/Button/Button';
 import { Selections } from '../Selections/Selections';
 import './SelectWall.css';
-// eslint-disable-next-line import/no-cycle
-import { PlayAgainstComputer } from '../PlayAgainstComputer/PlayAgainstComputer';
 
 export function SelectWall(props) {
   return (
