@@ -7,6 +7,7 @@ import { History } from './components/History/History';
 import { PlayZone } from './components/PlayZone/PlayZone';
 import { SelectWall } from './components/SelectWall/SelectWall';
 import { Button } from './components/commons/Button/Button';
+import { Footer } from './components/Footer/Footer';
 
 function App() {
   const [player1Name, setPlayer1Name] = useState(null);
@@ -179,6 +180,7 @@ function App() {
           </>
         ) : null}
       </main>
+      <Footer />
     </>
   );
 }

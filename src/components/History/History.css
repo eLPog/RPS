@@ -1,6 +1,7 @@
 .history {
     display: flex;
     justify-content: center;
+    margin-bottom: 1rem;
 }
 .historyList {
     list-style: none;
