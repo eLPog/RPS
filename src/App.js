@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Button } from './components/commons/Button/Button';
 import { choices } from './assets/database/choices';
 
@@ -21,7 +21,18 @@ function App() {
   const player2NameHandler = (e) => setPlayer2Name(e.target.value);
   const namesAddedHandler = () => {
     setNamesAdded(true);
+    localStorage.setItem('players', JSON.stringify({ player1: player1Name, player2: player2Name }));
   };
+
+  useEffect(() => {
+    let playersNames = localStorage.getItem('players');
+    playersNames = JSON.parse(playersNames);
+    if (playersNames) {
+      setPlayer1Name(playersNames.player1);
+      setPlayer2Name(playersNames.player2);
+      setNamesAdded(true);
+    }
+  }, []);
 
   const player1ChoiceHandler = (value) => {
     if (roundFinished) {
