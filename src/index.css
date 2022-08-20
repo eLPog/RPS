@@ -1,11 +1,34 @@
+:root {
+    font-size: 16px;
+    font-family: 'Silkscreen', cursive;
+    --first-color: white;
+    --second-color: indianred;
+    --third-color: darkred;
+    --first-bg-color: black;
+
+}
 body {
+    margin:0;
+    padding: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #000000;
+    background-color: var(--first-bg-color);
     color:#ffffff;
     animation: showElement 2300ms ease-in;
-    font-family: 'Silkscreen', cursive;
+
+}
+
+body::-webkit-scrollbar {
+    width: 0.25rem;
+
+}
+body::-webkit-scrollbar-track {
+    width: 0.25rem;
+
+}
+body::-webkit-scrollbar-thumb {
+    width: 0.25rem;
 
 }

@@ -2,6 +2,7 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import { Button } from './components/commons/Button/Button';
 import { choices } from './assets/database/choices';
+import { Menu } from './components/Menu/Menu';
 
 function App() {
   const [player1Name, setPlayer1Name] = useState(null);
@@ -93,6 +94,7 @@ function App() {
 
   return (
     <div className="App">
+      <Menu />
       <main>
         <div className={`selectWall ${roundFinished && 'blocked'}`}>
           <div className="selections">

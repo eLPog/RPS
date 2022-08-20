@@ -12,7 +12,7 @@ input {
     border-bottom: 2px solid gray;
     outline: 0;
     font-size: 1.3rem;
-    color: white;
+    color: var(--first-color);
     padding: 7px 0;
     background: transparent;
 }
@@ -21,7 +21,7 @@ label {
     display: block;
     transition: 0.2s;
     font-size: 1rem;
-    color: indianred;
+    color: var(--second-color);
     font-weight:700;
     margin-bottom: 0.5rem;
 }
@@ -38,7 +38,7 @@ input:focus {
 
 .selection {
     font-size: 8rem;
-    background-color: black;
+    background-color: var(--first-bg-color);
     cursor:pointer;
     transition: 200ms;
     animation: showElement 2300ms ease-in;
@@ -73,7 +73,7 @@ input:focus {
     font-size: 1.5rem;
     font-weight: bolder;
     display: block;
-    color: darkred;
+    color: var(--third-color);
 }
 
 .result-selection {
@@ -112,12 +112,12 @@ input:focus {
     text-align: center;
 }
 .winner {
-    color: indianred;
+    color: var(--second-color);
     font-size: 3.2rem;
 }
 .gameNo {
     font-size: 1.1rem;
-    color:indianred;
+    color:var(--second-color);;
 }
 .winnerName {
     font-size: 1.3rem;

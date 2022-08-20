@@ -1,0 +1,15 @@
+.menu {
+    position: fixed;
+    top:20rem;
+    left:1rem;
+    width: 1rem;
+    height: 1rem;
+    border:1px solid white;
+    transition: 2s;
+    color:var(--first-color)
+
+}
+
+.nav ul {
+    list-style: none;
+}
