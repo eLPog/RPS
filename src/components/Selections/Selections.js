@@ -17,6 +17,7 @@ export function Selections(props) {
           className="selection"
           key={el.id}
           onClick={() => props.playerChoiceHandler(el.emoji)}
+          disabled={!props.namesAdded}
         >
           {el.emoji}
         </button>
