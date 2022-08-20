@@ -1,6 +1,5 @@
 import './App.css';
 import { useEffect, useState } from 'react';
-import { Button } from './components/commons/Button/Button';
 import { choices } from './assets/database/choices';
 import { Menu } from './components/Menu/Menu';
 import { Results } from './components/Results/Results';
@@ -115,8 +114,10 @@ function App() {
   }
 
   return (
-    <div className="App">
-      {!roundFinished && <Menu deleteNames={deletePlayersNames} resetHistory={resetHistory} namesAdded={namesAdded} />}
+    <>
+      <header>
+        {!roundFinished && <Menu deleteNames={deletePlayersNames} resetHistory={resetHistory} namesAdded={namesAdded} />}
+      </header>
       <main>
         <SelectWall
           roundFinished={roundFinished}
@@ -146,9 +147,8 @@ function App() {
             <History resultsHistory={resultsHistory} />
           </>
         ) : null}
-
       </main>
-    </div>
+    </>
   );
 }
 
