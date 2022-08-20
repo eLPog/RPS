@@ -137,7 +137,7 @@ function App() {
   return (
     <>
       <header>
-        <Button text={!playAgainstComputer ? 'Play with computer' : 'Play with human'} onClick={playWithComputer} />
+        <Button text={!playAgainstComputer ? 'Play with computer' : 'Play with human'} onClick={playWithComputer} disabled={roundFinished} />
         {!roundFinished && (
         <Menu
           deleteNames={deletePlayersNames}

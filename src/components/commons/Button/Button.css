@@ -18,19 +18,8 @@
     color: var(--second-color);
 }
 .normalButton:disabled {
-    background-color: #c2e7f0;
+    opacity: 0.3;
     color: darkgray;
     cursor: not-allowed;
 }
 
-.infoButton {
-    text-decoration: none;
-    background-color: var(--first-color);
-    color: white;
-    border-radius: 8px;
-    padding: 0.75rem 1.5rem;
-    border: 1px solid teal;
-    cursor: pointer;
-    margin-top: 2rem;
-    box-shadow: 3px 3px 10px #000000 ;
-}
