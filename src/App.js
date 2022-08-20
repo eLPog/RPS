@@ -7,7 +7,6 @@ import { History } from './components/History/History';
 import { PlayZone } from './components/PlayZone/PlayZone';
 import { SelectWall } from './components/SelectWall/SelectWall';
 import { Button } from './components/commons/Button/Button';
-import { PlayAgainstComputer } from './components/PlayAgainstComputer/PlayAgainstComputer';
 
 function App() {
   const [player1Name, setPlayer1Name] = useState(null);
@@ -77,16 +76,24 @@ function App() {
     setPlayer2Choice(value);
   };
   function newGame() {
+    if (playAgainstComputer) {
+      setComputerSign(choices[Math.floor(Math.random() * choices.length)].emoji);
+    }
     setRoundFinished(false);
   }
 
   function playWithComputer() {
+    if (playAgainstComputer) {
+      setPlayAgainstComputer(false);
+      setPlayer2Name(null);
+      setNamesAdded(false);
+      resetHistory();
+      return;
+    }
     setPlayAgainstComputer(true);
     setPlayer2Name('Computer');
-    const computerSelectedSign = choices[Math.floor(Math.random() * choices.length)].emoji;
-    setComputerSign(computerSelectedSign);
-    // player2ChoiceHandler(computerSelectedSign);
-    // console.log(`play with comp function - player 2 choice state ${player2Choice}`);
+    setComputerSign(choices[Math.floor(Math.random() * choices.length)].emoji);
+    resetHistory();
   }
 
   function checkWinner(choicePlayer1, choicePlayer2) {
@@ -130,8 +137,15 @@ function App() {
   return (
     <>
       <header>
-        <Button text="play with computer" onClick={playWithComputer} />
-        {!roundFinished && <Menu deleteNames={deletePlayersNames} resetHistory={resetHistory} namesAdded={namesAdded} />}
+        <Button text={!playAgainstComputer ? 'Play with computer' : 'Play with human'} onClick={playWithComputer} />
+        {!roundFinished && (
+        <Menu
+          deleteNames={deletePlayersNames}
+          resetHistory={resetHistory}
+          namesAdded={namesAdded}
+          playAgainstComputer={playAgainstComputer}
+        />
+        )}
       </header>
       <main>
         <SelectWall
