@@ -58,6 +58,7 @@ function App() {
       selectedSignPlayer2: player2Choice,
       gameID: Math.floor(Math.random() * 10000),
       gameNumber,
+      dateOfPlay: `${new Date().toLocaleDateString()} ${new Date().getHours()}:${new Date().getMinutes()}`,
     };
     if (player1.beat === player2.name) {
       setWinner(player1Name);
@@ -73,7 +74,7 @@ function App() {
       setWinner('Draw');
       gameStats.winner = 'draw';
     }
-    resultsHistory.push(gameStats);
+    resultsHistory.unshift(gameStats);
     setLastGame({
       player1: gameStats.selectedSignPlayer1,
       player2: gameStats.selectedSignPlayer2,
@@ -177,6 +178,7 @@ function App() {
                     <span className="winnerName">
                       {el.winner}
                     </span>
+                    {el.dateOfPlay}
                   </li>
                 ))}
               </ul>
