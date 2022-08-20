@@ -81,8 +81,8 @@ function App() {
           <div className="selections">
             {!namesAdded ? (
               <div>
-                <label htmlFor="player1Name">Player 1 name</label>
-                <input className="player" id="player1Name" onChange={player1NameHandler} />
+                <label htmlFor="player1Name">Name</label>
+                <input className="player" placeholder="Player 1" required id="player1Name" onChange={player1NameHandler} />
               </div>
             ) : null}
 
@@ -92,8 +92,8 @@ function App() {
           <div className="selections">
             {!namesAdded ? (
               <div>
-                <label htmlFor="player1Name">Player 2 name</label>
-                <input className="player" id="player2Name" onChange={player2NameHandler} />
+                <label htmlFor="player1Name">Name</label>
+                <input className="player" placeholder="Player 2" required id="player2Name" onChange={player2NameHandler} />
               </div>
             ) : null}
 
