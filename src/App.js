@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { Button } from './components/commons/Button/Button';
 import { choices } from './assets/database/choices';
 import { Menu } from './components/Menu/Menu';
+import { Results } from './components/Results/Results';
 
 function App() {
   const [player1Name, setPlayer1Name] = useState(null);
@@ -31,6 +32,7 @@ function App() {
     setPlayer2Score(0);
     setNamesAdded(false);
     setResultsHistory([]);
+    setGameNumber(1);
     localStorage.clear();
   }
   function resetHistory() {
@@ -111,7 +113,7 @@ function App() {
 
   return (
     <div className="App">
-      <Menu deleteNames={deletePlayersNames} resetHistory={resetHistory} namesAdded={namesAdded} />
+      {!roundFinished && <Menu deleteNames={deletePlayersNames} resetHistory={resetHistory} namesAdded={namesAdded} />}
       <main>
         <div className={`selectWall ${roundFinished && 'blocked'}`}>
           <div className="selections">
@@ -173,23 +175,24 @@ function App() {
               )}
 
             </div>
-            <div className="results">
-              <span className="result-score">
-                {player1Name}
-                {' '}
-                score:
-                {' '}
-                {player1Score}
-              </span>
-              <span className="result-score">
-                {' '}
-                {player2Name}
-                {' '}
-                score:
-                {' '}
-                {player2Score}
-              </span>
-            </div>
+            {/* <div className="results"> */}
+            {/*  <span className="result-score"> */}
+            {/*    {player1Name} */}
+            {/*    {' '} */}
+            {/*    score: */}
+            {/*    {' '} */}
+            {/*    {player1Score} */}
+            {/*  </span> */}
+            {/*  <span className="result-score"> */}
+            {/*    {' '} */}
+            {/*    {player2Name} */}
+            {/*    {' '} */}
+            {/*    score: */}
+            {/*    {' '} */}
+            {/*    {player2Score} */}
+            {/*  </span> */}
+            {/* </div> */}
+            <Results player1Name={player1Name} player2Name={player2Name} player1Score={player1Score} player2Score={player2Score} />
             <div className="history">
               <ul className="historyList">
                 {resultsHistory.map((el) => (
