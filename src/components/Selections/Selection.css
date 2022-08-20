@@ -57,3 +57,11 @@ input:focus {
         font-size: 4rem;
     }
 }
+@media (hover:none) and (pointer: coarse) {
+    .selection:hover {
+        transform: none;
+    }
+    .selection {
+        transform: none;
+    }
+}
