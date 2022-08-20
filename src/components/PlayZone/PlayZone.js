@@ -12,7 +12,7 @@ export function PlayZone(props) {
         </>
       ) : null }
 
-      {props.player1Choice && props.player2Choice ?
+      {(props.player1Choice && props.player2Choice) || (props.player1Choice && props.playAgainstComputer) ?
         <Button text="Play" onClick={() => props.checkWinner(props.player1Choice, props.player2Choice)} /> : null}
       {props.roundFinished && (
         <>

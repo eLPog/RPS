@@ -6,6 +6,8 @@ import { Results } from './components/Results/Results';
 import { History } from './components/History/History';
 import { PlayZone } from './components/PlayZone/PlayZone';
 import { SelectWall } from './components/SelectWall/SelectWall';
+import { Button } from './components/commons/Button/Button';
+import { PlayAgainstComputer } from './components/PlayAgainstComputer/PlayAgainstComputer';
 
 function App() {
   const [player1Name, setPlayer1Name] = useState(null);
@@ -20,6 +22,8 @@ function App() {
   const [gameNumber, setGameNumber] = useState(1);
   const [lastGame, setLastGame] = useState(null);
   const [namesAdded, setNamesAdded] = useState(false);
+  const [playAgainstComputer, setPlayAgainstComputer] = useState(false);
+  const [computerSign, setComputerSign] = useState(null);
 
   const player1NameHandler = (e) => setPlayer1Name(e.target.value);
   const player2NameHandler = (e) => setPlayer2Name(e.target.value);
@@ -75,13 +79,23 @@ function App() {
   function newGame() {
     setRoundFinished(false);
   }
+
+  function playWithComputer() {
+    setPlayAgainstComputer(true);
+    setPlayer2Name('Computer');
+    const computerSelectedSign = choices[Math.floor(Math.random() * choices.length)].emoji;
+    setComputerSign(computerSelectedSign);
+    // player2ChoiceHandler(computerSelectedSign);
+    // console.log(`play with comp function - player 2 choice state ${player2Choice}`);
+  }
+
   function checkWinner(choicePlayer1, choicePlayer2) {
     const player1 = choices.find((el) => el.emoji === choicePlayer1);
-    const player2 = choices.find((el) => el.emoji === choicePlayer2);
+    const player2 = !playAgainstComputer ? choices.find((el) => el.emoji === choicePlayer2) : choices.find((el) => el.emoji === computerSign);
     const gameStats = {
       winner: null,
       selectedSignPlayer1: player1Choice,
-      selectedSignPlayer2: player2Choice,
+      selectedSignPlayer2: !playAgainstComputer ? player2Choice : computerSign,
       gameID: Math.floor(Math.random() * 10000),
       gameNumber,
       dateOfPlay: `${new Date().toLocaleDateString()} ${new Date().getHours()}:${new Date().getMinutes()}`,
@@ -116,10 +130,12 @@ function App() {
   return (
     <>
       <header>
+        <Button text="play with computer" onClick={playWithComputer} />
         {!roundFinished && <Menu deleteNames={deletePlayersNames} resetHistory={resetHistory} namesAdded={namesAdded} />}
       </header>
       <main>
         <SelectWall
+          playAgainstComputer={playAgainstComputer}
           roundFinished={roundFinished}
           namesAdded={namesAdded}
           player1Choice={player1Choice}
@@ -142,6 +158,7 @@ function App() {
               winner={winner}
               newGame={newGame}
               checkWinner={checkWinner}
+              playAgainstComputer={playAgainstComputer}
             />
             <Results player1Name={player1Name} player2Name={player2Name} player1Score={player1Score} player2Score={player2Score} />
             <History resultsHistory={resultsHistory} />
