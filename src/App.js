@@ -32,8 +32,12 @@ function App() {
       setPlayer2Name(playersNames.player2);
       setNamesAdded(true);
     }
+    let gamesHistory = localStorage.getItem('history');
+    gamesHistory = JSON.parse(gamesHistory);
+    if (gamesHistory) {
+      setResultsHistory(gamesHistory);
+    }
   }, []);
-
   const player1ChoiceHandler = (value) => {
     if (roundFinished) {
       return;
@@ -80,6 +84,7 @@ function App() {
       player2: gameStats.selectedSignPlayer2,
     });
     setResultsHistory((prevState) => prevState);
+    localStorage.setItem('history', JSON.stringify(resultsHistory));
     setGameNumber((prevState) => prevState + 1);
     setRoundFinished(true);
     setPlayer1Choice(null);
