@@ -15,6 +15,9 @@ export function Menu(props) {
       />
       <Button text="New Game" onClick={props.deleteNames} disabled={props.roundFinished} />
       <Button text="Reset history" onClick={props.resetHistory} disabled={props.roundFinished} />
+      <Link to="/versions">
+        <Button text="App history" />
+      </Link>
     </nav>
 
   );

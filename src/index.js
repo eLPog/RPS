@@ -6,6 +6,7 @@ import {
 import './index.css';
 import App from './App';
 import { Instruction } from './components/Instruction/Instruction';
+import { AppHistory } from './components/AppHistory/Main/AppHistory';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,6 +14,7 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/instruction" element={<Instruction />} />
+        <Route path="/versions" element={<AppHistory />} />
         <Route path="/" element={<App />} />
         <Route path="/*" element={<Navigate to="/" />} />
       </Routes>
