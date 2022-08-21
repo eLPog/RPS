@@ -9,8 +9,8 @@ export function Menu(props) {
         onClick={props.playWithComputer}
         disabled={props.roundFinished}
       />
-      <Button text="New Game" onClick={props.deleteNames} />
-      <Button text="Reset history" onClick={props.resetHistory} />
+      <Button text="New Game" onClick={props.deleteNames} disabled={props.roundFinished} />
+      <Button text="Reset history" onClick={props.resetHistory} disabled={props.roundFinished} />
     </nav>
 
   );
