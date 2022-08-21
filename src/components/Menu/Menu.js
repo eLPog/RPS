@@ -1,9 +1,13 @@
 import './Menu.css';
+import { Link } from 'react-router-dom';
 import { Button } from '../commons/Button/Button';
 
 export function Menu(props) {
   return (
     <nav className="menu">
+      <Link to="/instruction">
+        <Button text="Instruction" />
+      </Link>
       <Button
         text={!props.playAgainstComputer ? 'Play with computer' : 'Play with human'}
         onClick={props.playWithComputer}

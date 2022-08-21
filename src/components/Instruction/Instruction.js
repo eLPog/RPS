@@ -1,5 +1,7 @@
 import './Instruction.css';
+import { Link } from 'react-router-dom';
 import photo from '../../assets/graph/gameInstruction.jpg';
+import { Button } from '../commons/Button/Button';
 
 export function Instruction() {
   return (
@@ -41,6 +43,10 @@ export function Instruction() {
           Spock smashes scissors and vaporizes rock
         </li>
       </ul>
+      <Link to="/">
+        <Button text="Back" />
+      </Link>
+
     </div>
   );
 }

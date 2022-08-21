@@ -4,8 +4,32 @@
     align-items: center;
     justify-content: center;
     width: 90%;
+    animation: showElement 800ms ease-in;
+}
+h2 {
+    border-radius: 2rem;
+    padding: 0.5rem 1rem;
+    background:radial-gradient(circle, rgba(252,235,119,1) 0%, rgba(145,26,26,1) 47%, rgba(143,47,47,1) 100%);
 }
 img {
-    width: 80%;
+    max-width: 60%;
+    height: auto;
 }
 
+.instructions {
+    max-width: 50%;
+    list-style: none;
+}
+ul li::before {
+    content:"\2022";
+    color: var(--second-color);
+    font-weight: bold;
+    font-size: 1.2rem;
+    display: inline-block;
+    width: 1rem;
+    margin-left: -1rem;
+}
+
+ li:not(:last-child) {
+     margin-bottom: 0.1rem;
+ }
