@@ -1,5 +1,5 @@
 <h1>Rock Paper Scissors</h1>
-<hr><p>A simple react app for two players to play a popular game Rock Paper Scissors</p><h2>General Information</h2>
+<hr><p>A react app for two players to play a popular game Rock Paper Scissors in the version that appeared on the TV series Big Bang Theory. In addition, we have a choice of a lizard and Spoke</p><h2>General Information</h2>
 <hr><ul>
 <li>Players names and games history are save to local storage and user can any time delete it.</li>
 </ul><ul>
