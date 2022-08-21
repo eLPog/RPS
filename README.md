@@ -16,6 +16,12 @@
 <img src="https://user-images.githubusercontent.com/89840843/185790327-af8d2f05-8b58-43c7-aa46-6d3e23cc086d.png">
 <p>Istruction page shows all the rules of the game</p>
 <img src="https://user-images.githubusercontent.com/89840843/185790341-dadf5154-3f41-4388-8374-3403de274d54.png">
+<hr>
+<h2>Code examples</h2>
+<p>Function to check who is the winner</p>
+<img src="https://user-images.githubusercontent.com/89840843/185792230-199110cb-5abc-4ba2-a8a0-7b30f429346e.png">
+<p>Reusable button component</p>
+<img src="https://user-images.githubusercontent.com/89840843/185792200-fccf0b8a-ed28-48cb-aab2-6e460d4e12e5.png">
 <ul>
 </ul><h2>Technologies Used</h2>
 <hr><ul>
