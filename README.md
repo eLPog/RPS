@@ -11,17 +11,17 @@
 </ul>
 <hr>
 <p>Two players: users choose one of five signs to play.</p>
- <img src="https://user-images.githubusercontent.com/89840843/185790287-3f5d8a03-9d1d-4916-98cd-b55ac38e480a.png">
+ <img src="https://user-images.githubusercontent.com/89840843/185790287-3f5d8a03-9d1d-4916-98cd-b55ac38e480a.png"><hr>
   <p>In play against computer:  computer choose sign randomly</p>
-<img src="https://user-images.githubusercontent.com/89840843/185790327-af8d2f05-8b58-43c7-aa46-6d3e23cc086d.png">
+<img src="https://user-images.githubusercontent.com/89840843/185790327-af8d2f05-8b58-43c7-aa46-6d3e23cc086d.png"><hr>
 <p>Istruction page shows all the rules of the game</p>
-<img src="https://user-images.githubusercontent.com/89840843/185790341-dadf5154-3f41-4388-8374-3403de274d54.png">
+<img src="https://user-images.githubusercontent.com/89840843/185790341-dadf5154-3f41-4388-8374-3403de274d54.png"><hr>
 <hr>
 <h2>Code examples</h2>
 <p>Function to check who is the winner</p>
-<img src="https://user-images.githubusercontent.com/89840843/185792230-199110cb-5abc-4ba2-a8a0-7b30f429346e.png">
+<img src="https://user-images.githubusercontent.com/89840843/185792230-199110cb-5abc-4ba2-a8a0-7b30f429346e.png"><hr>
 <p>Reusable button component</p>
-<img src="https://user-images.githubusercontent.com/89840843/185792200-fccf0b8a-ed28-48cb-aab2-6e460d4e12e5.png">
+<img src="https://user-images.githubusercontent.com/89840843/185792200-fccf0b8a-ed28-48cb-aab2-6e460d4e12e5.png"><hr>
 <ul>
 </ul><h2>Technologies Used</h2>
 <hr><ul>
@@ -40,5 +40,7 @@
 </ul><h2>Usage</h2>
 <hr><p>You need to set a booth players names. After that booth of players select our signs. When sign are selected, push the Play button to show te results.</p>
 <p>If you play against computer, set your name, choose sign and push play.</p>
+<h2>Project status</h2>
+<p>In progress</p>
 <h2>Contact</h2>
 <hr><p><span style="margin-right: 30px;"></span><a href="https://www.linkedin.com/in/lukas-pogorzelski-13412123a/"><img target="_blank" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" style="width: 10%;"></a><span style="margin-right: 30px;"></span><a href="https://github.com/eLPog"><img target="_blank" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" style="width: 10%;"></a></p>
