@@ -16,7 +16,7 @@ body {
     /*align-items: center;*/
     background-color: var(--first-bg-color);
     color:#ffffff;
-    animation: showElement 2300ms ease-in;
+    animation: showElement 1300ms ease-in;
 
 
 }

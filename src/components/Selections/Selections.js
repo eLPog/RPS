@@ -26,7 +26,7 @@ export function Selections(props) {
       </div>
     ) : (
       <div>
-        The computer has already selected its sign
+        You play now against computer. Please choose your sign and push play button
       </div>
     )
 

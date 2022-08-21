@@ -35,7 +35,7 @@ input:focus {
     background-color: var(--first-bg-color);
     cursor:pointer;
     transition: 200ms;
-    animation: showElement 2300ms ease-in;
+    animation: showElement 800ms ease-in;
 
 }
 .selection:hover {
