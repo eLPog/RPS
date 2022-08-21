@@ -43,10 +43,11 @@ export function Instruction() {
           Spock smashes scissors and vaporizes rock
         </li>
       </ul>
-      <Link to="/">
-        <Button text="Back" />
-      </Link>
-
+      <div className="backButton">
+        <Link to="/">
+          <Button text="Back" />
+        </Link>
+      </div>
     </div>
   );
 }

@@ -6,7 +6,7 @@
     width: 90%;
     animation: showElement 800ms ease-in;
 }
-h2 {
+.instructionContainer h2 {
     border-radius: 2rem;
     padding: 0.5rem 1rem;
     background:radial-gradient(circle, rgba(252,235,119,1) 0%, rgba(145,26,26,1) 47%, rgba(143,47,47,1) 100%);
@@ -33,3 +33,6 @@ ul li::before {
  li:not(:last-child) {
      margin-bottom: 0.1rem;
  }
+.backButton {
+    margin-bottom: 2rem;
+}
