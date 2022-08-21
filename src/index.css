@@ -45,6 +45,16 @@ body::-webkit-scrollbar-thumb {
         font-size: 10px;
     }
 }
+@media only screen and (min-width:576px){
+    :root {
+        font-size: 11px;
+    }
+}
+@media only screen and (min-width:992px){
+    :root {
+        font-size: 14px;
+    }
+}
 @keyframes showElement {
     from {
         opacity: 0;

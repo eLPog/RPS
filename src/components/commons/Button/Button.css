@@ -1,13 +1,13 @@
 .normalButton{
     text-decoration: none;
-    background-color: var(--third-color);
+    background-color: var(--second-color);
     color: white;
     border-radius: 8px;
-    padding: 0.75rem 1.5rem;
-    border: 1px solid teal;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--third-color);
     cursor: pointer;
-    margin-top: 2rem;
-    box-shadow: 3px 3px 10px #000000 ;
+    margin-top: 1rem;
+    box-shadow: -1px 1px 4px var(--first-color) ;
 }
 .normalButton:hover{
     background-color: var(--second-color) ;
