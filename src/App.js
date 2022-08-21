@@ -6,8 +6,8 @@ import { Results } from './components/Results/Results';
 import { History } from './components/History/History';
 import { PlayZone } from './components/PlayZone/PlayZone';
 import { SelectWall } from './components/SelectWall/SelectWall';
-import { Button } from './components/commons/Button/Button';
 import { Footer } from './components/Footer/Footer';
+import { Header } from './components/Header/Header';
 
 function App() {
   const [player1Name, setPlayer1Name] = useState(null);
@@ -138,17 +138,14 @@ function App() {
 
   return (
     <>
-      <header>
-        <Menu
-          deleteNames={deletePlayersNames}
-          resetHistory={resetHistory}
-          namesAdded={namesAdded}
-          playAgainstComputer={playAgainstComputer}
-          playWithComputer={playWithComputer}
-          roundFinished={roundFinished}
-        />
-
-      </header>
+      <Header
+        deleteNames={deletePlayersNames}
+        resetHistory={resetHistory}
+        namesAdded={namesAdded}
+        playAgainstComputer={playAgainstComputer}
+        playWithComputer={playWithComputer}
+        roundFinished={roundFinished}
+      />
       <main>
         <SelectWall
           playAgainstComputer={playAgainstComputer}
