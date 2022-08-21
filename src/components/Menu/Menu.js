@@ -3,12 +3,15 @@ import { Button } from '../commons/Button/Button';
 
 export function Menu(props) {
   return (
-    props.namesAdded && (
     <nav className="menu">
-      <Button text="New Players" onClick={props.deleteNames} />
+      <Button
+        text={!props.playAgainstComputer ? 'Play with computer' : 'Play with human'}
+        onClick={props.playWithComputer}
+        disabled={props.roundFinished}
+      />
+      <Button text="New Game" onClick={props.deleteNames} />
       <Button text="Reset history" onClick={props.resetHistory} />
     </nav>
-    )
 
   );
 }

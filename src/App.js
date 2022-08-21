@@ -39,6 +39,7 @@ function App() {
     setNamesAdded(false);
     setResultsHistory([]);
     setGameNumber(1);
+    setPlayAgainstComputer(false);
     localStorage.clear();
   }
   function resetHistory() {
@@ -138,15 +139,15 @@ function App() {
   return (
     <>
       <header>
-        <Button text={!playAgainstComputer ? 'Play with computer' : 'Play with human'} onClick={playWithComputer} disabled={roundFinished} />
-        {!roundFinished && (
         <Menu
           deleteNames={deletePlayersNames}
           resetHistory={resetHistory}
           namesAdded={namesAdded}
           playAgainstComputer={playAgainstComputer}
+          playWithComputer={playWithComputer}
+          roundFinished={roundFinished}
         />
-        )}
+
       </header>
       <main>
         <SelectWall
