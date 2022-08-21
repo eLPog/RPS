@@ -109,12 +109,12 @@ function App() {
       gameNumber,
       dateOfPlay: `${new Date().toLocaleDateString()} ${new Date().getHours()}:${new Date().getMinutes()}`,
     };
-    if (player1.beat === player2.name) {
+    if (player1.beat[0] === player2.name || player1.beat[1] === player2.name) {
       setWinner(player1Name);
       setPlayer1Score(((prevState) => prevState + 1));
       gameStats.winner = player1Name;
     }
-    if (player2.beat === player1.name) {
+    if (player2.beat[0] === player1.name || player2.beat[1] === player1.name) {
       setWinner(player2Name);
       setPlayer2Score(((prevState) => prevState + 1));
       gameStats.winner = player2Name;
