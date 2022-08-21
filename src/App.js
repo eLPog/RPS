@@ -1,13 +1,14 @@
 import './App.css';
 import { useEffect, useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import { choices } from './assets/database/choices';
-import { Menu } from './components/Menu/Menu';
 import { Results } from './components/Results/Results';
 import { History } from './components/History/History';
 import { PlayZone } from './components/PlayZone/PlayZone';
 import { SelectWall } from './components/SelectWall/SelectWall';
 import { Footer } from './components/Footer/Footer';
 import { Header } from './components/Header/Header';
+import { Instruction } from './components/Instruction/Instruction';
 
 function App() {
   const [player1Name, setPlayer1Name] = useState(null);
@@ -138,6 +139,7 @@ function App() {
 
   return (
     <>
+
       <Header
         deleteNames={deletePlayersNames}
         resetHistory={resetHistory}
