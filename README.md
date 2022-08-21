@@ -1,6 +1,6 @@
 
 
-<h1>Rock Paper Scissors</h1>
+<h1>Rock Paper Scissors Lizard Spoke</h1>
 <img src="https://user-images.githubusercontent.com/89840843/185790753-1a61789e-5868-4d35-9386-4e6a0d693860.png">
 <hr><p>A react app for two players to play a popular game Rock Paper Scissors in the version that appeared on the TV series Big Bang Theory. In addition, we have a choice of a lizard and Spoke</p><h2>General Information</h2>
 <hr><ul>
