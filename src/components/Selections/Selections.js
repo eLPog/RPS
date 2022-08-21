@@ -13,16 +13,18 @@ export function Selections(props) {
         ) : null}
 
         <span className={`playerName ${props.playerChoice && 'selected'}`}>{props.playerName}</span>
-        {choices.map((el) => (
-          <button
-            className="selection"
-            key={el.id}
-            onClick={() => props.playerChoiceHandler(el.emoji)}
-            disabled={!props.namesAdded}
-          >
-            {el.emoji}
-          </button>
-        ))}
+        <div className="signsContainer">
+          {choices.map((el) => (
+            <button
+              className="selection"
+              key={el.id}
+              onClick={() => props.playerChoiceHandler(el.emoji)}
+              disabled={!props.namesAdded}
+            >
+              {el.emoji}
+            </button>
+          ))}
+        </div>
       </div>
     ) : (
       <div>
