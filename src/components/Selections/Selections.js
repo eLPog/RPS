@@ -27,9 +27,9 @@ export function Selections(props) {
         </div>
       </div>
     ) : (
-      <div>
+      <p>
         You play now against computer. Please choose your sign and push play button
-      </div>
+      </p>
     )
 
   );

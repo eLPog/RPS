@@ -26,6 +26,13 @@ function App() {
   const [namesAdded, setNamesAdded] = useState(false);
   const [playAgainstComputer, setPlayAgainstComputer] = useState(false);
   const [computerSign, setComputerSign] = useState(null);
+  const [hamburgerMenuActive, setHamburgerMenuActive] = useState(false);
+  const menuHandler = () => {
+    hamburgerMenuActive ? setHamburgerMenuActive(false) : setHamburgerMenuActive(true);
+  };
+  const closeHamburgerMenu = () => {
+    setHamburgerMenuActive(false);
+  };
 
   const player1NameHandler = (e) => setPlayer1Name(e.target.value);
   const player2NameHandler = (e) => setPlayer2Name(e.target.value);
@@ -147,9 +154,12 @@ function App() {
         playAgainstComputer={playAgainstComputer}
         playWithComputer={playWithComputer}
         roundFinished={roundFinished}
+        menuHandler={menuHandler}
+        hamburgerMenuActive={hamburgerMenuActive}
 
       />
-      <div className="mainAppContainer">
+
+      <div role="button" tabIndex={0} onKeyDown={escape} className="mainAppContainer" onClick={closeHamburgerMenu}>
         <Header
           deleteNames={deletePlayersNames}
           resetHistory={resetHistory}

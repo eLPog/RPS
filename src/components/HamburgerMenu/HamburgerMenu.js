@@ -4,19 +4,26 @@ import { Link } from 'react-router-dom';
 import { Button } from '../commons/Button/Button';
 
 export function HamburgerMenu(props) {
-  const [hamburgerMenuActive, setHamburgerMenuActive] = useState(false);
-  const menuHandler = () => {
-    hamburgerMenuActive ? setHamburgerMenuActive(false) : setHamburgerMenuActive(true);
-  };
+  // const [hamburgerMenuActive, setHamburgerMenuActive] = useState(false);
+  // const menuHandler = () => {
+  //   hamburgerMenuActive ? setHamburgerMenuActive(false) : setHamburgerMenuActive(true);
+  // };
   return (
     <>
       <Button
         text="?"
-        onClick={menuHandler}
-        customStyle={`hamburger__button ${(hamburgerMenuActive && !props.roundFinished) ? 'hamburger__button--active' : ''}`}
+        onClick={props.menuHandler}
+        customStyle={`hamburger__button ${(props.hamburgerMenuActive && !props.roundFinished) ? 'hamburger__button--active' : ''}`}
         disabled={props.roundFinished}
       />
-      <div className={`hamburger__menu  ${(hamburgerMenuActive && !props.roundFinished) ? 'hamburger__menu--active' : ''}`}>
+      <div
+        role="button"
+        tabIndex={0}
+        onKeyDown={escape}
+        className={`hamburger__menu  ${(props.hamburgerMenuActive && !props.roundFinished) ?
+          'hamburger__menu--active' : ''}`}
+        onClick={props.menuHandler}
+      >
         <Link to="/instruction" className="link__container">
           <Button
             text="Instruction"
