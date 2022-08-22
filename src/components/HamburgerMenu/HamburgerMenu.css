@@ -1,0 +1,41 @@
+.link__container {
+    width: 100%;
+}
+.hamburger__menu__button {
+    width:100%;
+}
+.hamburger__button {
+    position: fixed;
+    left:2rem;
+    top:13rem;
+    transition:all 500ms 200ms ease-in;
+}
+.hamburger__menu {
+    padding: 0 1rem 2rem 1rem;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /*border:1px solid yellow;*/
+    border-radius: 50%;
+    position: fixed;
+    left:0;
+    top:13rem;
+    z-index: 10;
+    width:10rem;
+    transform: translateX(-16rem);
+    transition:all 500ms 200ms ease-in;
+}
+
+.hamburger__menu--active {
+    transform:translateX(0);
+}
+.hamburger__button--active {
+    transform: translateX(10rem);
+}
+@media only screen and (min-width: 576px) {
+    .hamburger__menu, .hamburger__button {
+        display:none;
+    }
+}

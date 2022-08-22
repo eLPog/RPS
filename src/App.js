@@ -9,6 +9,7 @@ import { SelectWall } from './components/SelectWall/SelectWall';
 import { Footer } from './components/Footer/Footer';
 import { Header } from './components/Header/Header';
 import { Instruction } from './components/Instruction/Instruction';
+import { HamburgerMenu } from './components/HamburgerMenu/HamburgerMenu';
 
 function App() {
   const [player1Name, setPlayer1Name] = useState(null);
@@ -139,48 +140,58 @@ function App() {
 
   return (
     <>
-
-      <Header
+      <HamburgerMenu
         deleteNames={deletePlayersNames}
         resetHistory={resetHistory}
         namesAdded={namesAdded}
         playAgainstComputer={playAgainstComputer}
         playWithComputer={playWithComputer}
         roundFinished={roundFinished}
+
       />
-      <main>
-        <SelectWall
-          playAgainstComputer={playAgainstComputer}
-          roundFinished={roundFinished}
+      <div className="mainAppContainer">
+        <Header
+          deleteNames={deletePlayersNames}
+          resetHistory={resetHistory}
           namesAdded={namesAdded}
-          player1Choice={player1Choice}
-          player2Choice={player2Choice}
-          player1Name={player1Name}
-          player2Name={player2Name}
-          player1ChoiceHandler={player1ChoiceHandler}
-          player2ChoiceHandler={player2ChoiceHandler}
-          player1NameHandler={player1NameHandler}
-          player2NameHandler={player2NameHandler}
-          namesAddedHandler={namesAddedHandler}
+          playAgainstComputer={playAgainstComputer}
+          playWithComputer={playWithComputer}
+          roundFinished={roundFinished}
         />
-        {namesAdded ? (
-          <>
-            <PlayZone
-              roundFinished={roundFinished}
-              player1Choice={player1Choice}
-              player2Choice={player2Choice}
-              lastGame={lastGame}
-              winner={winner}
-              newGame={newGame}
-              checkWinner={checkWinner}
-              playAgainstComputer={playAgainstComputer}
-            />
-            <Results player1Name={player1Name} player2Name={player2Name} player1Score={player1Score} player2Score={player2Score} />
-            <History resultsHistory={resultsHistory} />
-          </>
-        ) : null}
-      </main>
-      <Footer />
+        <main>
+          <SelectWall
+            playAgainstComputer={playAgainstComputer}
+            roundFinished={roundFinished}
+            namesAdded={namesAdded}
+            player1Choice={player1Choice}
+            player2Choice={player2Choice}
+            player1Name={player1Name}
+            player2Name={player2Name}
+            player1ChoiceHandler={player1ChoiceHandler}
+            player2ChoiceHandler={player2ChoiceHandler}
+            player1NameHandler={player1NameHandler}
+            player2NameHandler={player2NameHandler}
+            namesAddedHandler={namesAddedHandler}
+          />
+          {namesAdded ? (
+            <>
+              <PlayZone
+                roundFinished={roundFinished}
+                player1Choice={player1Choice}
+                player2Choice={player2Choice}
+                lastGame={lastGame}
+                winner={winner}
+                newGame={newGame}
+                checkWinner={checkWinner}
+                playAgainstComputer={playAgainstComputer}
+              />
+              <Results player1Name={player1Name} player2Name={player2Name} player1Score={player1Score} player2Score={player2Score} />
+              <History resultsHistory={resultsHistory} />
+            </>
+          ) : null}
+        </main>
+        <Footer />
+      </div>
     </>
   );
 }
