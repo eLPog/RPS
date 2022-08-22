@@ -1,17 +1,12 @@
 import './HamburgerMenu.css';
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../commons/Button/Button';
 
 export function HamburgerMenu(props) {
-  // const [hamburgerMenuActive, setHamburgerMenuActive] = useState(false);
-  // const menuHandler = () => {
-  //   hamburgerMenuActive ? setHamburgerMenuActive(false) : setHamburgerMenuActive(true);
-  // };
   return (
     <>
       <Button
-        text="?"
+        text={props.hamburgerMenuActive ? 'X' : '≡'}
         onClick={props.menuHandler}
         customStyle={`hamburger__button ${(props.hamburgerMenuActive && !props.roundFinished) ? 'hamburger__button--active' : ''}`}
         disabled={props.roundFinished}
