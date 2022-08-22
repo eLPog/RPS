@@ -27,9 +27,13 @@ export function Selections(props) {
         </div>
       </div>
     ) : (
-      <p>
-        You play now against computer. Please choose your sign and push play button
-      </p>
+      <div className="selections">
+
+        <span className={`playerName ${props.playerChoice && 'selected'}`}>{props.playerName}</span>
+        <div className="signsContainer">
+          <button className="selection computer" disabled>❓</button>
+        </div>
+      </div>
     )
 
   );

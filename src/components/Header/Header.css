@@ -1,11 +1,15 @@
 .header {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
 }
 .title {
     border-radius: 2rem;
-    padding: 1rem 3rem;
+    text-align: center;
+    padding: 1rem 2rem;
     position: relative;
+    width: 80%;
     top:-1rem;
     background:radial-gradient(circle, rgba(143,47,47,1) 0%, rgba(145,26,26,1) 47%, rgba(252,235,119,1) 100%);
 
@@ -13,8 +17,8 @@
 }
 @media only screen and (max-width:460px){
     .title {
-        font-size: 0.9rem;
-        position: static;
+        font-size: 1rem;
         padding:0.2rem;
+        margin-top: 1rem;
     }
 }

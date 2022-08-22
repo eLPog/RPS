@@ -1,5 +1,6 @@
 .selections {
     margin:1rem 2rem;
+    height: 100%;
 }
 .selected {
     color:green;
@@ -46,6 +47,11 @@ input:focus {
 .selection:hover {
     transform: scale(1.2);
 }
+.computer:hover {
+    cursor: not-allowed;
+    transform: none;
+}
+
 .playerName {
     font-size: 1.5rem;
     margin-right: 2rem;
