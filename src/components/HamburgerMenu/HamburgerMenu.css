@@ -33,7 +33,7 @@
 .hamburger__button--active {
     transform: translateX(10rem);
 }
-@media only screen and (min-width: 576px) {
+@media only screen and (min-width: 577px) {
     .hamburger__menu, .hamburger__button {
         display:none;
     }
