@@ -1,6 +1,5 @@
 import './App.css';
-import { useEffect, useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { useCallback, useEffect, useState } from 'react';
 import { choices } from './assets/database/choices';
 import { Results } from './components/Results/Results';
 import { History } from './components/History/History';
@@ -8,7 +7,6 @@ import { PlayZone } from './components/PlayZone/PlayZone';
 import { SelectWall } from './components/SelectWall/SelectWall';
 import { Footer } from './components/Footer/Footer';
 import { Header } from './components/Header/Header';
-import { Instruction } from './components/Instruction/Instruction';
 import { HamburgerMenu } from './components/HamburgerMenu/HamburgerMenu';
 
 function App() {
@@ -27,20 +25,23 @@ function App() {
   const [playAgainstComputer, setPlayAgainstComputer] = useState(false);
   const [computerSign, setComputerSign] = useState(null);
   const [hamburgerMenuActive, setHamburgerMenuActive] = useState(false);
-  const menuHandler = () => {
+
+  const menuHandler = useCallback(() => {
     hamburgerMenuActive ? setHamburgerMenuActive(false) : setHamburgerMenuActive(true);
-  };
-  const closeHamburgerMenu = () => {
+  }, [hamburgerMenuActive]);
+  const closeHamburgerMenu = useCallback(() => {
     setHamburgerMenuActive(false);
-  };
+  }, []);
 
   const player1NameHandler = (e) => setPlayer1Name(e.target.value);
   const player2NameHandler = (e) => setPlayer2Name(e.target.value);
-  const namesAddedHandler = () => {
+
+  const namesAddedHandler = useCallback(() => {
     setNamesAdded(true);
     localStorage.setItem('players', JSON.stringify({ player1: player1Name, player2: player2Name }));
-  };
-  function deletePlayersNames() {
+  }, [player1Name, player2Name]);
+
+  const deletePlayersNames = () => {
     setPlayer1Name(null);
     setPlayer2Name(null);
     setPlayer1Score(0);
@@ -50,14 +51,14 @@ function App() {
     setGameNumber(1);
     setPlayAgainstComputer(false);
     localStorage.clear();
-  }
-  function resetHistory() {
+  };
+  const resetHistory = () => {
     setPlayer1Score(0);
     setPlayer2Score(0);
     setResultsHistory([]);
     setGameNumber(1);
     localStorage.removeItem('history');
-  }
+  };
 
   useEffect(() => {
     let playersNames = localStorage.getItem('players');
@@ -86,14 +87,14 @@ function App() {
     }
     setPlayer2Choice(value);
   };
-  function newGame() {
+  const newGame = useCallback(() => {
     if (playAgainstComputer) {
       setComputerSign(choices[Math.floor(Math.random() * choices.length)].emoji);
     }
     setRoundFinished(false);
-  }
+  }, [playAgainstComputer, roundFinished]);
 
-  function playWithComputer() {
+  const playWithComputer = () => {
     if (playAgainstComputer) {
       setPlayAgainstComputer(false);
       setPlayer2Name(null);
@@ -105,9 +106,9 @@ function App() {
     setPlayer2Name('Computer');
     setComputerSign(choices[Math.floor(Math.random() * choices.length)].emoji);
     resetHistory();
-  }
+  };
 
-  function checkWinner(choicePlayer1, choicePlayer2) {
+  const checkWinner = (choicePlayer1, choicePlayer2) => {
     const player1 = choices.find((el) => el.emoji === choicePlayer1);
     const player2 = !playAgainstComputer ? choices.find((el) => el.emoji === choicePlayer2) : choices.find((el) => el.emoji === computerSign);
     const gameStats = {
@@ -143,7 +144,7 @@ function App() {
     setRoundFinished(true);
     setPlayer1Choice(null);
     setPlayer2Choice(null);
-  }
+  };
 
   return (
     <>
