@@ -7,7 +7,7 @@ export function Footer() {
 
         <h4>
           Created by
-          <a href="https://www.github.com/elPog"> eLPog</a>
+          <a href="https://www.github.com/elPog" target="_blank" rel="noreferrer"> eLPog</a>
         </h4>
 
       </div>
