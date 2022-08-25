@@ -1,7 +1,16 @@
+import React from 'react';
 import { choices } from '../../assets/database/choices';
 import './Selection.css';
 
-export function Selections(props) {
+export function Selections(props:{
+    playAgainstComputer?:boolean,
+    namesAdded:boolean,
+    player:string,
+    playerNameHandler:(e:React.ChangeEvent<HTMLInputElement>)=>void,
+    playerChoice:string,
+    playerName:string,
+    playerChoiceHandler:((choice:string)=>void)
+}) {
   return (
     !props.playAgainstComputer ? (
       <div className="selections">
