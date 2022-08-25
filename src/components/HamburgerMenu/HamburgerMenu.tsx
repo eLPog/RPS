@@ -1,8 +1,11 @@
 import './HamburgerMenu.css';
 import { Link } from 'react-router-dom';
+import React from 'react';
 import { Button } from '../commons/Button/Button';
 
-export function HamburgerMenu(props) {
+export function HamburgerMenu(props:{hamburgerMenuActive:boolean, menuHandler:()=>void,
+    roundFinished:boolean, handleKeyDown:(event: React.KeyboardEvent<HTMLInputElement>)=>void, playAgainstComputer:boolean, playWithComputer:()=>void,
+    deleteNames:()=>void, resetHistory:()=>void}) {
   return (
     <>
       <Button
@@ -14,7 +17,7 @@ export function HamburgerMenu(props) {
       <div
         role="button"
         tabIndex={0}
-        onKeyDown={escape}
+        onKeyDown={props.handleKeyDown}
         className={`hamburger__menu  ${(props.hamburgerMenuActive && !props.roundFinished) ?
           'hamburger__menu--active' : ''}`}
         onClick={props.menuHandler}

@@ -1,10 +1,9 @@
 import './Button.css';
 
-export function Button(props) {
+export function Button(props:{customStyle?:string, onClick?:()=>void, text:string, disabled?:boolean}) {
   return (
     <button
       className={!props.customStyle ? 'normalButton' : `normalButton ${props.customStyle}`}
-      // className={props.customStyle ? `normalButton ${props.style}` : 'normalButton'}
       onClick={props.onClick}
       disabled={props.disabled}
     >

@@ -1,8 +1,23 @@
+import React from 'react';
 import { Button } from '../commons/Button/Button';
 import { Selections } from '../Selections/Selections';
 import './SelectWall.css';
 
-export function SelectWall(props) {
+export function SelectWall(props:{
+    roundFinished:boolean,
+    namesAdded:boolean,
+    player1NameHandler:(e:React.ChangeEvent<HTMLInputElement>)=>void,
+    player2NameHandler:(e:React.ChangeEvent<HTMLInputElement>)=>void,
+    player1Choice:string,
+    player2Choice:string,
+    player1Name:string,
+    player2Name:string,
+    player1ChoiceHandler:(choice:string)=>void,
+    player2ChoiceHandler:(choice:string)=>void,
+    playAgainstComputer:boolean,
+    namesAddedHandler:()=>void
+
+}) {
   return (
     <>
       <div className={`selectWall ${props.roundFinished && 'blocked'}`}>
