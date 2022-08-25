@@ -1,4 +1,4 @@
-export function RightSide(props) {
+export function RightSide(props:{version:string, content:string, date:string}) {
   return (
     <>
       <div className="timelineComponent">

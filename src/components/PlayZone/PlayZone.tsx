@@ -1,15 +1,24 @@
 import { Button } from '../commons/Button/Button';
 import './PlayZone.css';
+import { LastGameInterface } from '../../interface/Interfaces';
 
-export function PlayZone(props) {
+export function PlayZone(props:{
+  roundFinished:boolean,
+  player1Choice:string,
+  player2Choice:string,
+  playAgainstComputer:boolean,
+  checkWinner:(p1choice:string, p2choice:string)=>void,
+  lastGame:LastGameInterface,
+  winner:string,
+  newGame:()=>void
+
+}) {
   return (
     <div className="playZone">
       {!props.roundFinished && (!props.player1Choice || !props.player2Choice) ? (
-        <>
-          <span>
-            Select your signs
-          </span>
-        </>
+        <span>
+          Select your signs
+        </span>
       ) : null }
 
       {(props.player1Choice && props.player2Choice) || (props.player1Choice && props.playAgainstComputer) ?

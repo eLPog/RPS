@@ -37,5 +37,10 @@
        "no-param-reassign":0,
        "import/named":0,
        "no-plusplus":0,
+        "import/extensions": "off",
+               "import/no-unresolved": "off",
+               "no-use-before-define": "off",
+               "react/function-component-definition": "off",
+               "react/require-default-props": "off"
     }
   }

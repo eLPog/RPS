@@ -1,4 +1,6 @@
-export function LeftSide(props) {
+import React from 'react';
+
+export function LeftSide(props:{version:string, content:string, date:string}) {
   return (
     <>
       <div className="timelineComponent timelineComponent--bg">
