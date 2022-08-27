@@ -61,15 +61,13 @@ function App() {
     localStorage.removeItem('history');
   };
   useEffect(() => {
-    // @ts-ignore
-    const playersNames = JSON.parse(localStorage.getItem('players'));
+    const playersNames = JSON.parse(localStorage.getItem('players') as string);
     if (playersNames) {
       setPlayer1Name(playersNames.player1);
       setPlayer2Name(playersNames.player2);
       setNamesAdded(true);
     }
-    // @ts-ignore
-    const gamesHistory:GameStatsInterface[] = JSON.parse(localStorage.getItem('history'));
+    const gamesHistory:GameStatsInterface[] = JSON.parse(localStorage.getItem('history') as string);
     if (gamesHistory) {
       setResultsHistory(gamesHistory);
       setGameNumber(gamesHistory.length + 1);
