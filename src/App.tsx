@@ -9,6 +9,7 @@ import { Header } from './components/Header/Header';
 import { HamburgerMenu } from './components/HamburgerMenu/HamburgerMenu';
 import { choices } from './assets/database/choices';
 import { GameStatsInterface, LastGameInterface } from './interface/Interfaces';
+import { GameContext } from './context/GameContext';
 
 function App() {
   const [player1Name, setPlayer1Name] = useState<string>('');
@@ -61,13 +62,15 @@ function App() {
     localStorage.removeItem('history');
   };
   useEffect(() => {
-    const playersNames = JSON.parse(localStorage.getItem('players') as string);
+    // @ts-ignore
+    const playersNames = JSON.parse(localStorage.getItem('players'));
     if (playersNames) {
       setPlayer1Name(playersNames.player1);
       setPlayer2Name(playersNames.player2);
       setNamesAdded(true);
     }
-    const gamesHistory:GameStatsInterface[] = JSON.parse(localStorage.getItem('history') as string);
+    // @ts-ignore
+    const gamesHistory:GameStatsInterface[] = JSON.parse(localStorage.getItem('history'));
     if (gamesHistory) {
       setResultsHistory(gamesHistory);
       setGameNumber(gamesHistory.length + 1);
@@ -155,60 +158,55 @@ function App() {
   };
   return (
     <>
-      <HamburgerMenu
-        deleteNames={deletePlayersNames}
-        resetHistory={resetHistory}
-        playAgainstComputer={playAgainstComputer}
-        playWithComputer={playWithComputer}
-        roundFinished={roundFinished}
-        menuHandler={menuHandler}
-        hamburgerMenuActive={hamburgerMenuActive}
-        handleKeyDown={handleKeyDown}
-
-      />
-
-      <div role="button" tabIndex={0} onKeyDown={handleKeyDown} className="mainAppContainer" onClick={closeHamburgerMenu}>
-        <Header
-          deleteNames={deletePlayersNames}
-          resetHistory={resetHistory}
-          playAgainstComputer={playAgainstComputer}
-          playWithComputer={playWithComputer}
-          roundFinished={roundFinished}
+      <GameContext.Provider value={{
+        player1Name,
+        player2Name,
+        player1Choice,
+        player2Choice,
+        winner,
+        player1Score,
+        player2Score,
+        playAgainstComputer,
+        roundFinished,
+        deletePlayersNames,
+        resetHistory,
+        playWithComputer,
+      }}
+      >
+        <HamburgerMenu
+          menuHandler={menuHandler}
+          hamburgerMenuActive={hamburgerMenuActive}
+          handleKeyDown={handleKeyDown}
         />
-        <main>
-          <SelectWall
-            playAgainstComputer={playAgainstComputer}
-            roundFinished={roundFinished}
-            namesAdded={namesAdded}
-            player1Choice={player1Choice}
-            player2Choice={player2Choice}
-            player1Name={player1Name}
-            player2Name={player2Name}
-            player1ChoiceHandler={player1ChoiceHandler}
-            player2ChoiceHandler={player2ChoiceHandler}
-            player1NameHandler={player1NameHandler}
-            player2NameHandler={player2NameHandler}
-            namesAddedHandler={namesAddedHandler}
-          />
-          {namesAdded ? (
-            <>
-              <PlayZone
-                roundFinished={roundFinished}
-                player1Choice={player1Choice}
-                player2Choice={player2Choice}
-                lastGame={lastGame}
-                winner={winner}
-                newGame={newGame}
-                checkWinner={checkWinner}
-                playAgainstComputer={playAgainstComputer}
-              />
-              <Results player1Name={player1Name} player2Name={player2Name} player1Score={player1Score} player2Score={player2Score} />
-              <History resultsHistory={resultsHistory} />
-            </>
-          ) : null}
-        </main>
-        <Footer />
-      </div>
+
+        <div role="button" tabIndex={0} onKeyDown={handleKeyDown} className="mainAppContainer" onClick={closeHamburgerMenu}>
+          <Header />
+          <main>
+            <SelectWall
+              namesAdded={namesAdded}
+              player1ChoiceHandler={player1ChoiceHandler}
+              player2ChoiceHandler={player2ChoiceHandler}
+              player1NameHandler={player1NameHandler}
+              player2NameHandler={player2NameHandler}
+              namesAddedHandler={namesAddedHandler}
+            />
+            {namesAdded ? (
+              <>
+                <PlayZone
+                  player1Choice={player1Choice}
+                  player2Choice={player2Choice}
+                  lastGame={lastGame}
+                  newGame={newGame}
+                  checkWinner={checkWinner}
+                />
+                <Results />
+                <History resultsHistory={resultsHistory} />
+              </>
+            ) : null}
+          </main>
+          <Footer />
+        </div>
+      </GameContext.Provider>
     </>
   );
 }

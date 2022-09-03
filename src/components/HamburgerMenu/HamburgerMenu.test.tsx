@@ -14,12 +14,7 @@ describe('Check if  Hamburger menu is correctly rendered', () => {
               <HamburgerMenu
                 hamburgerMenuActive
                 menuHandler={() => {}}
-                roundFinished={false}
                 handleKeyDown={() => {}}
-                playAgainstComputer={false}
-                playWithComputer={() => {}}
-                deleteNames={() => {}}
-                resetHistory={() => {}}
               />
 )}
           />
@@ -41,12 +36,7 @@ describe('Check if  Hamburger menu is correctly rendered', () => {
               <HamburgerMenu
                 hamburgerMenuActive={false}
                 menuHandler={() => {}}
-                roundFinished={false}
                 handleKeyDown={() => {}}
-                playAgainstComputer={false}
-                playWithComputer={() => {}}
-                deleteNames={() => {}}
-                resetHistory={() => {}}
               />
                 )}
           />
