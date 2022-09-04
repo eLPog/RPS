@@ -1,0 +1,25 @@
+.modalContainer {
+    text-align: center;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border:1px solid var(--second-color);
+    padding: 2rem;
+    border-radius: 50px;
+    background-color: rgba(100, 100, 100, 0.5);
+}
+.setPointInput {
+    width: 5rem;
+    height: 2rem;
+    background-color: var(--second-color);
+    margin:1rem;
+    padding: 0.5rem;
+    color:#ffffff;
+    box-shadow: 1px 1px 10px white;
+
+}
+.setPointInput::placeholder {
+    color:#ffffff;
+}

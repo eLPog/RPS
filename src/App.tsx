@@ -118,6 +118,10 @@ function App() {
     resetHistory();
   };
 
+  const setPointsLimitHandler = (pointsLimit:number) => {
+    setPointsLimit(pointsLimit);
+  };
+
   const checkWinner = (choicePlayer1:string, choicePlayer2:string) => {
     const player1 = choices.find((el) => el.emoji === choicePlayer1);
     const player2 = !playAgainstComputer ? choices.find((el) => el.emoji === choicePlayer2) : choices.find((el) => el.emoji === computerSign);
@@ -199,6 +203,7 @@ function App() {
               player1NameHandler={player1NameHandler}
               player2NameHandler={player2NameHandler}
               namesAddedHandler={namesAddedHandler}
+              setPointsLimitHandler={setPointsLimitHandler}
             />
             {namesAdded ? (
               <>

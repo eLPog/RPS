@@ -1,8 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button } from '../commons/Button/Button';
 import { Selections } from '../Selections/Selections';
 import './SelectWall.css';
 import { GameContext } from '../../context/GameContext';
+import { SetPointsLimitModal } from '../Modals/SetPointsLimitModal';
+import { Backdrop } from '../Modals/Backdrop';
 
 export function SelectWall(props:{
     namesAdded:boolean,
@@ -10,14 +12,30 @@ export function SelectWall(props:{
     player2NameHandler:(e:React.ChangeEvent<HTMLInputElement>)=>void,
     player1ChoiceHandler:(choice:string)=>void,
     player2ChoiceHandler:(choice:string)=>void,
-    namesAddedHandler:()=>void
+    namesAddedHandler:()=>void,
+    setPointsLimitHandler:(newNumber:number)=>void,
 
 }) {
   const {
     roundFinished, player1Choice, player2Choice, player1Name, player2Name, playAgainstComputer, pointsLimit,
   } = useContext(GameContext);
+  const [showModal, setShowModal] = useState<boolean>(false);
+  const showModalHandler = () => {
+    showModal ? setShowModal(false) : setShowModal(true);
+  };
+  const setNewPoints = (newPoints:number) => {
+    props.setPointsLimitHandler(newPoints);
+    setShowModal(false);
+  };
   return (
     <>
+      {showModal && (
+        <>
+          <Backdrop>
+            <SetPointsLimitModal showModalHandler={showModalHandler} setNewPoints={setNewPoints} />
+          </Backdrop>
+        </>
+      )}
       <div className={`pointsLimitContainer ${roundFinished && 'blocked'}`}>
         <div>
           <p>
@@ -31,7 +49,7 @@ export function SelectWall(props:{
         </div>
         <div>
           <p>
-            Change the point limit
+            <Button text="Set points limit" onClick={showModalHandler} disabled={roundFinished} />
           </p>
         </div>
 

@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Button } from '../commons/Button/Button';
 import './PlayZone.css';
 import { LastGameInterface } from '../../interface/Interfaces';
