@@ -24,3 +24,7 @@
     font-size: 1.4em;
     color:var(--second-color)
 }
+.gameOverSummary p:first-child {
+    color:red;
+    font-size: 1.5em;
+}

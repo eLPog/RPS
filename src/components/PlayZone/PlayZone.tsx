@@ -36,7 +36,7 @@ export function PlayZone(props:{
             {props.lastGame.player2}
           </span>
           <h2 className="winnerName">
-            The winner is
+            This round winner:
             {' '}
             <span className="winner">{winner}</span>
           </h2>
@@ -48,7 +48,7 @@ export function PlayZone(props:{
       <div className="gameOverSummary">
         <p>Game over</p>
         <p>
-          The winner is:
+          The game winner is:
           <span className="winnerNameSummary">
             {fullGameWinner}
           </span>
