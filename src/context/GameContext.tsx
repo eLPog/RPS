@@ -24,7 +24,7 @@ export const GameContext:React.Context<GameContextInterface > = createContext({
   winner: '',
   player1Score: 0,
   player2Score: 0,
-  playAgainstComputer: true,
+  playAgainstComputer: false,
   roundFinished: false,
   pointsLimit: 3,
   deletePlayersNames: ():void => {},

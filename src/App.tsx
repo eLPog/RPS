@@ -24,7 +24,7 @@ function App() {
   const [gameNumber, setGameNumber] = useState<number>(1);
   const [lastGame, setLastGame] = useState<LastGameInterface>({ player1: '', player2: '' });
   const [namesAdded, setNamesAdded] = useState<boolean>(false);
-  const [playAgainstComputer, setPlayAgainstComputer] = useState<boolean>(true);
+  const [playAgainstComputer, setPlayAgainstComputer] = useState<boolean>(false);
   const [computerSign, setComputerSign] = useState<string>('');
   const [pointsLimit, setPointsLimit] = useState<number>(3);
   const [hamburgerMenuActive, setHamburgerMenuActive] = useState<boolean>(false);

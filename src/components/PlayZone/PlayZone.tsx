@@ -48,6 +48,12 @@ export function PlayZone(props:{
       <div className="gameOverSummary">
         <p>Game over</p>
         <p>
+          {props.lastGame.player1}
+          {' '}
+          vs.
+          {props.lastGame.player2}
+        </p>
+        <p>
           The game winner is:
           <span className="winnerNameSummary">
             {fullGameWinner}
