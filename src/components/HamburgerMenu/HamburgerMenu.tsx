@@ -1,44 +1,48 @@
 import './HamburgerMenu.css';
 import { Link } from 'react-router-dom';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button } from '../commons/Button/Button';
+import { GameContext } from '../../context/GameContext';
 
 export function HamburgerMenu(props:{hamburgerMenuActive:boolean, menuHandler:()=>void,
-    roundFinished:boolean, handleKeyDown:(event: React.KeyboardEvent<HTMLInputElement>)=>void, playAgainstComputer:boolean, playWithComputer:()=>void,
-    deleteNames:()=>void, resetHistory:()=>void}) {
+    handleKeyDown:(event: React.KeyboardEvent<HTMLInputElement>)=>void}) {
+  const {
+    deletePlayersNames, resetHistory, playWithComputer, playAgainstComputer, roundFinished,
+  } = useContext(GameContext);
+
   return (
     <>
       <Button
         text={props.hamburgerMenuActive ? 'X' : '≡'}
         onClick={props.menuHandler}
-        customStyle={`hamburger__button ${(props.hamburgerMenuActive && !props.roundFinished) ? 'hamburger__button--active' : ''}`}
-        disabled={props.roundFinished}
+        customStyle={`hamburger__button ${(props.hamburgerMenuActive && !roundFinished) ? 'hamburger__button--active' : ''}`}
+        disabled={roundFinished}
       />
       <div
         role="button"
         tabIndex={0}
         onKeyDown={props.handleKeyDown}
-        className={`hamburger__menu  ${(props.hamburgerMenuActive && !props.roundFinished) ?
+        className={`hamburger__menu  ${(props.hamburgerMenuActive && !roundFinished) ?
           'hamburger__menu--active' : ''}`}
         onClick={props.menuHandler}
       >
         <Link to="/instruction" className="link__container">
           <Button
             text="Instruction"
-            disabled={props.roundFinished}
+            disabled={roundFinished}
             customStyle="hamburger__menu__button"
           />
         </Link>
         <Button
-          text={!props.playAgainstComputer ? 'Play with computer' : 'Play with human'}
+          text={!playAgainstComputer ? 'Play with computer' : 'Play with human'}
           customStyle="hamburger__menu__button"
-          onClick={props.playWithComputer}
-          disabled={props.roundFinished}
+          onClick={playWithComputer}
+          disabled={roundFinished}
         />
-        <Button text="New Game" onClick={props.deleteNames} disabled={props.roundFinished} customStyle="hamburger__menu__button" />
-        <Button text="Reset history" onClick={props.resetHistory} disabled={props.roundFinished} customStyle="hamburger__menu__button" />
+        <Button text="New Game" onClick={deletePlayersNames} disabled={roundFinished} customStyle="hamburger__menu__button" />
+        <Button text="Reset history" onClick={resetHistory} disabled={roundFinished} customStyle="hamburger__menu__button" />
         <Link to="/versions" className="link__container">
-          <Button text="App history" disabled={props.roundFinished} customStyle="hamburger__menu__button" />
+          <Button text="App history" disabled={roundFinished} customStyle="hamburger__menu__button" />
         </Link>
       </div>
     </>

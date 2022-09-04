@@ -1,27 +1,27 @@
 import './Results.css';
+import { useContext } from 'react';
+import { GameContext } from '../../context/GameContext';
 
-export function Results(props:{
-    player1Name:string,
-    player1Score:number,
-    player2Name:string,
-    player2Score:number
-}) {
+export function Results() {
+  const {
+    player1Name, player1Score, player2Name, player2Score,
+  } = useContext(GameContext);
   return (
     <div className="results">
       <span className="result-score">
-        {props.player1Name}
+        {player1Name}
         {' '}
         score:
         {' '}
-        {props.player1Score}
+        {player1Score}
       </span>
       <span className="result-score">
         {' '}
-        {props.player2Name}
+        {player2Name}
         {' '}
         score:
         {' '}
-        {props.player2Score}
+        {player2Score}
       </span>
     </div>
   );

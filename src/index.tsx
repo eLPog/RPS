@@ -4,12 +4,12 @@ import {
   BrowserRouter, Route, Routes,
 } from 'react-router-dom';
 import './index.css';
-import App from './App';
+import { App } from './App';
 import { Instruction } from './components/Instruction/Instruction';
 import { AppHistory } from './components/AppHistory/Main/AppHistory';
 import { NotFoundPage } from './components/NotFoundPage/NotFoundPage';
 
-// const root = ReactDOM.createRoot(document.getElementById('root'));
+// version without TS: const root = ReactDOM.createRoot(document.getElementById('root'));
 const rootElement = document.getElementById('root');
 if (!rootElement) throw new Error('Failed to find root element');
 const root = ReactDOM.createRoot(rootElement);
