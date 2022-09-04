@@ -9,6 +9,7 @@ import { Header } from './components/Header/Header';
 import { HamburgerMenu } from './components/HamburgerMenu/HamburgerMenu';
 import { choices } from './assets/database/choices';
 import { GameStatsInterface, LastGameInterface } from './interface/Interfaces';
+import { GameContext } from './context/GameContext';
 
 function App() {
   const [player1Name, setPlayer1Name] = useState<string>('');
@@ -25,6 +26,7 @@ function App() {
   const [namesAdded, setNamesAdded] = useState<boolean>(false);
   const [playAgainstComputer, setPlayAgainstComputer] = useState<boolean>(false);
   const [computerSign, setComputerSign] = useState<string>('');
+  const [pointsLimit, setPointsLimit] = useState<number>(3);
   const [hamburgerMenuActive, setHamburgerMenuActive] = useState<boolean>(false);
 
   const menuHandler = useCallback(() => {
@@ -50,7 +52,8 @@ function App() {
     setNamesAdded(false);
     setResultsHistory([]);
     setGameNumber(1);
-    setPlayAgainstComputer(false);
+    if (!playAgainstComputer)setPlayAgainstComputer(false);
+    setRoundFinished(false);
     localStorage.clear();
   };
   const resetHistory = () => {
@@ -60,7 +63,6 @@ function App() {
     setGameNumber(1);
     localStorage.removeItem('history');
   };
-
   useEffect(() => {
     // @ts-ignore
     const playersNames = JSON.parse(localStorage.getItem('players'));
@@ -70,8 +72,7 @@ function App() {
       setNamesAdded(true);
     }
     // @ts-ignore
-    const gamesHistory:GameStatsInterface[] = JSON.parse(localStorage
-      .getItem('history'));
+    const gamesHistory:GameStatsInterface[] = JSON.parse(localStorage.getItem('history'));
     if (gamesHistory) {
       setResultsHistory(gamesHistory);
       setGameNumber(gamesHistory.length + 1);
@@ -95,7 +96,14 @@ function App() {
     }
     setRoundFinished(false);
   }, [playAgainstComputer, roundFinished]);
-
+  const nextRound = () => {
+    if (!playAgainstComputer)setPlayAgainstComputer(false);
+    setPlayer1Score(0);
+    setPlayer2Score(0);
+    setResultsHistory([]);
+    setGameNumber(1);
+    setRoundFinished(false);
+  };
   const playWithComputer = () => {
     if (playAgainstComputer) {
       setPlayAgainstComputer(false);
@@ -108,6 +116,10 @@ function App() {
     setPlayer2Name('Computer');
     setComputerSign(choices[Math.floor(Math.random() * choices.length)].emoji);
     resetHistory();
+  };
+
+  const setPointsLimitHandler = (pointsLimit:number) => {
+    setPointsLimit(pointsLimit);
   };
 
   const checkWinner = (choicePlayer1:string, choicePlayer2:string) => {
@@ -159,60 +171,58 @@ function App() {
   };
   return (
     <>
-      <HamburgerMenu
-        deleteNames={deletePlayersNames}
-        resetHistory={resetHistory}
-        playAgainstComputer={playAgainstComputer}
-        playWithComputer={playWithComputer}
-        roundFinished={roundFinished}
-        menuHandler={menuHandler}
-        hamburgerMenuActive={hamburgerMenuActive}
-        handleKeyDown={handleKeyDown}
-
-      />
-
-      <div role="button" tabIndex={0} onKeyDown={handleKeyDown} className="mainAppContainer" onClick={closeHamburgerMenu}>
-        <Header
-          deleteNames={deletePlayersNames}
-          resetHistory={resetHistory}
-          playAgainstComputer={playAgainstComputer}
-          playWithComputer={playWithComputer}
-          roundFinished={roundFinished}
+      <GameContext.Provider value={{
+        player1Name,
+        player2Name,
+        player1Choice,
+        player2Choice,
+        winner,
+        player1Score,
+        player2Score,
+        playAgainstComputer,
+        roundFinished,
+        pointsLimit,
+        deletePlayersNames,
+        resetHistory,
+        playWithComputer,
+      }}
+      >
+        <HamburgerMenu
+          menuHandler={menuHandler}
+          hamburgerMenuActive={hamburgerMenuActive}
+          handleKeyDown={handleKeyDown}
         />
-        <main>
-          <SelectWall
-            playAgainstComputer={playAgainstComputer}
-            roundFinished={roundFinished}
-            namesAdded={namesAdded}
-            player1Choice={player1Choice}
-            player2Choice={player2Choice}
-            player1Name={player1Name}
-            player2Name={player2Name}
-            player1ChoiceHandler={player1ChoiceHandler}
-            player2ChoiceHandler={player2ChoiceHandler}
-            player1NameHandler={player1NameHandler}
-            player2NameHandler={player2NameHandler}
-            namesAddedHandler={namesAddedHandler}
-          />
-          {namesAdded ? (
-            <>
-              <PlayZone
-                roundFinished={roundFinished}
-                player1Choice={player1Choice}
-                player2Choice={player2Choice}
-                lastGame={lastGame}
-                winner={winner}
-                newGame={newGame}
-                checkWinner={checkWinner}
-                playAgainstComputer={playAgainstComputer}
-              />
-              <Results player1Name={player1Name} player2Name={player2Name} player1Score={player1Score} player2Score={player2Score} />
-              <History resultsHistory={resultsHistory} />
-            </>
-          ) : null}
-        </main>
-        <Footer />
-      </div>
+
+        <div role="button" tabIndex={0} onKeyDown={handleKeyDown} className="mainAppContainer" onClick={closeHamburgerMenu}>
+          <Header />
+          <main>
+            <SelectWall
+              namesAdded={namesAdded}
+              player1ChoiceHandler={player1ChoiceHandler}
+              player2ChoiceHandler={player2ChoiceHandler}
+              player1NameHandler={player1NameHandler}
+              player2NameHandler={player2NameHandler}
+              namesAddedHandler={namesAddedHandler}
+              setPointsLimitHandler={setPointsLimitHandler}
+            />
+            {namesAdded ? (
+              <>
+                <PlayZone
+                  player1Choice={player1Choice}
+                  player2Choice={player2Choice}
+                  lastGame={lastGame}
+                  newGame={newGame}
+                  checkWinner={checkWinner}
+                  nextRound={nextRound}
+                />
+                <Results />
+                <History resultsHistory={resultsHistory} />
+              </>
+            ) : null}
+          </main>
+          <Footer />
+        </div>
+      </GameContext.Provider>
     </>
   );
 }

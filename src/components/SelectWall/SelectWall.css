@@ -5,6 +5,19 @@
     margin:3rem 0;
 
 }
+.pointsLimitContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color:orange;
+}
+.pointsLimitContainer__info {
+    background-color: var(--second-bg-color);
+    padding: 0.2rem 3rem;
+    border-radius: 10px;
+}
+
 .blocked {
     opacity: 0.15;
 }

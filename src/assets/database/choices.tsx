@@ -1,4 +1,6 @@
-export const choices = [{
+import { PlaySign } from '../../interface/Interfaces';
+
+export const choices :PlaySign[] = [{
   name: 'scissors',
   emoji: '✌',
   beat: ['paper', 'lizard'],

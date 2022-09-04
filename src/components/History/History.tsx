@@ -10,7 +10,7 @@ export function History(props:{
         {props.resultsHistory.map((el:GameStatsInterface) => (
           <li key={el.gameID}>
             <span className="gameNo">
-              Game no.
+              Round no.
               {' '}
               {el.gameNumber}
             </span>
