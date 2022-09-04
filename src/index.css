@@ -5,6 +5,7 @@
     --second-color: indianred;
     --third-color: darkred;
     --first-bg-color: black;
+    --second-bg-color: rgba(100, 100, 100, 0.5)
 
 }
 body {

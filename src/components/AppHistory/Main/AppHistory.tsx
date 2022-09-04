@@ -25,6 +25,12 @@ export function AppHistory() {
           content="A major modification that adds two new signs: Lizard and Spoke.
             This increased the attractiveness of the game, from now on each character beats two others."
         />
+        <LeftSide
+          version="version 1.2.1"
+          date="September 2022"
+          content="You can now set how many points you want the game to go on.
+          After one of the players reaches a certain number of points, the game is over."
+        />
       </div>
       <div className="button__bottom">
         <Link to="/">

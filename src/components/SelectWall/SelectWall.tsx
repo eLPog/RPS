@@ -37,7 +37,7 @@ export function SelectWall(props:{
         </>
       )}
       <div className={`pointsLimitContainer ${roundFinished && 'blocked'}`}>
-        <div>
+        <div className="pointsLimitContainer__info">
           <p>
             {' '}
             The first player with
@@ -47,7 +47,7 @@ export function SelectWall(props:{
             points wins
           </p>
         </div>
-        <div>
+        <div className="pointsLimitContainer__button">
           <p>
             <Button text="Set points limit" onClick={showModalHandler} disabled={roundFinished} />
           </p>
@@ -76,7 +76,7 @@ export function SelectWall(props:{
 
       </div>
       <div className="saveButton">
-        {player1Name && player2Name && !props.namesAdded ? <Button text="SAVE" onClick={props.namesAddedHandler} /> : null}
+        {player1Name && player2Name && !props.namesAdded ? <Button text="Play" onClick={props.namesAddedHandler} /> : null}
       </div>
     </>
   );
