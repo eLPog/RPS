@@ -8,11 +8,12 @@ interface GameContextInterface {
     winner: string,
     player1Score: number,
     player2Score: number,
+    playAgainstComputer:any,
+    roundFinished:any,
+    pointsLimit:number,
     deletePlayersNames:()=>void,
     resetHistory:()=>void,
-    playAgainstComputer:any,
     playWithComputer:()=>void,
-    roundFinished:any
 }
 
 export const GameContext:React.Context<GameContextInterface > = createContext({
@@ -25,6 +26,7 @@ export const GameContext:React.Context<GameContextInterface > = createContext({
   player2Score: 0,
   playAgainstComputer: false,
   roundFinished: false,
+  pointsLimit: 3,
   deletePlayersNames: ():void => {},
   resetHistory: ():void => {},
   playWithComputer: ():void => {},

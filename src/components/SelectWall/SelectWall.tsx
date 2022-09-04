@@ -14,10 +14,28 @@ export function SelectWall(props:{
 
 }) {
   const {
-    roundFinished, player1Choice, player2Choice, player1Name, player2Name, playAgainstComputer,
+    roundFinished, player1Choice, player2Choice, player1Name, player2Name, playAgainstComputer, pointsLimit,
   } = useContext(GameContext);
   return (
     <>
+      <div className={`pointsLimitContainer ${roundFinished && 'blocked'}`}>
+        <div>
+          <p>
+            {' '}
+            The first player with
+            {' '}
+            {pointsLimit}
+            {' '}
+            points wins
+          </p>
+        </div>
+        <div>
+          <p>
+            Change the point limit
+          </p>
+        </div>
+
+      </div>
       <div className={`selectWall ${roundFinished && 'blocked'}`}>
 
         <Selections

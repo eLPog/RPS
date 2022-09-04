@@ -15,3 +15,12 @@
     color: var(--second-color);
     font-size: 3.2rem;
 }
+.gameOverSummary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.winnerNameSummary {
+    font-size: 1.4em;
+    color:var(--second-color)
+}

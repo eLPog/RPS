@@ -26,6 +26,7 @@ function App() {
   const [namesAdded, setNamesAdded] = useState<boolean>(false);
   const [playAgainstComputer, setPlayAgainstComputer] = useState<boolean>(false);
   const [computerSign, setComputerSign] = useState<string>('');
+  const [pointsLimit, setPointsLimit] = useState<number>(3);
   const [hamburgerMenuActive, setHamburgerMenuActive] = useState<boolean>(false);
 
   const menuHandler = useCallback(() => {
@@ -51,7 +52,8 @@ function App() {
     setNamesAdded(false);
     setResultsHistory([]);
     setGameNumber(1);
-    setPlayAgainstComputer(false);
+    if (!playAgainstComputer)setPlayAgainstComputer(false);
+    setRoundFinished(false);
     localStorage.clear();
   };
   const resetHistory = () => {
@@ -94,7 +96,14 @@ function App() {
     }
     setRoundFinished(false);
   }, [playAgainstComputer, roundFinished]);
-
+  const nextRound = () => {
+    if (!playAgainstComputer)setPlayAgainstComputer(false);
+    setPlayer1Score(0);
+    setPlayer2Score(0);
+    setResultsHistory([]);
+    setGameNumber(1);
+    setRoundFinished(false);
+  };
   const playWithComputer = () => {
     if (playAgainstComputer) {
       setPlayAgainstComputer(false);
@@ -168,6 +177,7 @@ function App() {
         player2Score,
         playAgainstComputer,
         roundFinished,
+        pointsLimit,
         deletePlayersNames,
         resetHistory,
         playWithComputer,
@@ -198,6 +208,7 @@ function App() {
                   lastGame={lastGame}
                   newGame={newGame}
                   checkWinner={checkWinner}
+                  nextRound={nextRound}
                 />
                 <Results />
                 <History resultsHistory={resultsHistory} />

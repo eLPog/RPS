@@ -5,6 +5,15 @@
     margin:3rem 0;
 
 }
+.pointsLimitContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color:orange;
+
+}
+
 .blocked {
     opacity: 0.15;
 }
