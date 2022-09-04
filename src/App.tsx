@@ -73,6 +73,7 @@ function App() {
     }
     // @ts-ignore
     const gamesHistory:GameStatsInterface[] = JSON.parse(localStorage.getItem('history'));
+
     if (gamesHistory) {
       setResultsHistory(gamesHistory);
       setGameNumber(gamesHistory.length + 1);
@@ -226,5 +227,4 @@ function App() {
     </>
   );
 }
-
 export default App;

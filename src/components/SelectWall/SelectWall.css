@@ -11,6 +11,7 @@
     justify-content: center;
     align-items: center;
     color:orange;
+    margin-top: 0.5rem;
 }
 .pointsLimitContainer__info {
     background-color: var(--second-bg-color);
@@ -31,5 +32,8 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+    }
+    .pointsLimitContainer {
+        margin: 0.5rem;
     }
 }

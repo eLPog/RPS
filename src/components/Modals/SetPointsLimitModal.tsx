@@ -7,7 +7,6 @@ export function SetPointsLimitModal(props:{showModalHandler:()=>void, setNewPoin
   const setPointsHandler = (e:React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(Number(e.target.value));
   };
-  console.log(inputValue);
   const sendNewPoints = () => {
     props.setNewPoints(inputValue);
   };
