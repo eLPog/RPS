@@ -36,7 +36,9 @@ function App() {
     setHamburgerMenuActive(false);
   }, []);
 
-  const player1NameHandler = (e:React.ChangeEvent<HTMLInputElement>) => setPlayer1Name(e.target.value);
+  const player1NameHandler = (e:React.ChangeEvent<HTMLInputElement>) => {
+    setPlayer1Name(e.target.value);
+  };
   const player2NameHandler = (e:React.ChangeEvent<HTMLInputElement>) => setPlayer2Name(e.target.value);
 
   const namesAddedHandler = useCallback(() => {
@@ -46,7 +48,11 @@ function App() {
 
   const deletePlayersNames = () => {
     setPlayer1Name('');
-    setPlayer2Name('');
+    if (playAgainstComputer) {
+      setPlayer2Name('Computer');
+    } else {
+      setPlayer2Name('');
+    }
     setPlayer1Score(0);
     setPlayer2Score(0);
     setNamesAdded(false);
