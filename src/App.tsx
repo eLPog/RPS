@@ -4,7 +4,7 @@ import { Results } from './components/Results/Results';
 import { History } from './components/History/History';
 import { PlayZone } from './components/PlayZone/PlayZone';
 import { SelectWall } from './components/SelectWall/SelectWall';
-import { Footer } from './components/Footer/Footer';
+import Footer from './components/Footer/Footer';
 import { Header } from './components/Header/Header';
 import { HamburgerMenu } from './components/HamburgerMenu/HamburgerMenu';
 import { choices } from './assets/database/choices';

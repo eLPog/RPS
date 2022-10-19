@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import React from 'react';
-import { Footer } from './Footer';
+import Footer from './Footer';
 
 describe('Check AppHistory Component', () => {
   test('check if div is correctly rendered', () => {

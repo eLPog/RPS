@@ -1,6 +1,8 @@
 import './Footer.css';
+import React from 'react';
 
-export function Footer() {
+function Footer() {
+  console.log('footer render');
   return (
     <footer className="footer">
       <div className="author">
@@ -17,3 +19,4 @@ export function Footer() {
     </footer>
   );
 }
+export default React.memo(Footer);
