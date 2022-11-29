@@ -1,10 +1,10 @@
-import { render } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { HamburgerMenu } from './HamburgerMenu';
 
-describe('Test hamburger menu:', () => {
-  test('check if div container is correctly rendered if hamburger menu is active', () => {
+describe('Componen HamburgerMenu', () => {
+  test('should render menu', () => {
     const { getByText } = render(
       <BrowserRouter>
         <Routes>
@@ -29,7 +29,7 @@ describe('Test hamburger menu:', () => {
     expect(menuElement).toBeTruthy();
     expect(menuElement).toHaveClass('normalButton hamburger__menu__button');
   });
-  test('check if hamburger menu is hide if is not active', () => {
+  test('should hide menu if hamburger menu is not active', () => {
     render(
       <BrowserRouter>
         <Routes>
@@ -49,5 +49,30 @@ describe('Test hamburger menu:', () => {
     );
     const activeMenuContainer = document.querySelector('.hamburger__menu--active');
     expect(activeMenuContainer).toBeFalsy();
+  });
+  test('should change icon in menu toggle button', () => {
+    const menuHandler = jest.fn();
+    const { queryByText } = render(
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={(
+              <HamburgerMenu
+                hamburgerMenuActive
+                menuHandler={menuHandler}
+                handleKeyDown={() => {}}
+              />
+                      )}
+          />
+
+        </Routes>
+      </BrowserRouter>,
+    );
+    const menuToggleButton = queryByText('X');
+    expect(menuToggleButton).toHaveClass('hamburger__button--active');
+    // @ts-ignore
+    fireEvent.click(menuToggleButton);
+    expect(menuHandler).toBeCalled();
   });
 });

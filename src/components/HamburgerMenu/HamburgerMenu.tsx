@@ -17,6 +17,7 @@ export function HamburgerMenu(props:{hamburgerMenuActive:boolean, menuHandler:()
         onClick={props.menuHandler}
         customStyle={`hamburger__button ${(props.hamburgerMenuActive && !roundFinished) ? 'hamburger__button--active' : ''}`}
         disabled={roundFinished}
+        data-testId="hamburgerMenuToggleButton"
       />
       <div
         role="button"
