@@ -17,7 +17,15 @@ export function SetPointsLimitModal(props:{showModalHandler:()=>void, setNewPoin
           Set how many points you want to play
         </span>
       </label>
-      <input type="number" id="setPointInput" className="setPointInput" placeholder="3" onChange={setPointsHandler} min="1" />
+      <input
+        type="number"
+        id="setPointInput"
+        className="setPointInput"
+        data-testid="setPointInput"
+        placeholder="3"
+        onChange={setPointsHandler}
+        min="1"
+      />
       <Button text="Set" onClick={sendNewPoints} disabled={inputValue < 1 || !inputValue} />
       <Button text="Cancel" onClick={props.showModalHandler} />
     </div>
