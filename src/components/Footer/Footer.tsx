@@ -2,7 +2,6 @@ import './Footer.css';
 import React from 'react';
 
 function Footer() {
-  console.log('footer render');
   return (
     <footer className="footer">
       <div className="author">

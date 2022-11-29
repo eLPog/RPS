@@ -3,9 +3,9 @@ import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { HamburgerMenu } from './HamburgerMenu';
 
-describe('Check if  Hamburger menu is correctly rendered', () => {
+describe('Test hamburger menu:', () => {
   test('check if div container is correctly rendered if hamburger menu is active', () => {
-    render(
+    const { getByText } = render(
       <BrowserRouter>
         <Routes>
           <Route
@@ -25,6 +25,9 @@ describe('Check if  Hamburger menu is correctly rendered', () => {
     const [container] = document.getElementsByClassName('hamburger__menu');
     expect(container).toBeTruthy();
     expect(container).toContainHTML('div');
+    const menuElement = getByText('Instruction');
+    expect(menuElement).toBeTruthy();
+    expect(menuElement).toHaveClass('normalButton hamburger__menu__button');
   });
   test('check if hamburger menu is hide if is not active', () => {
     render(
@@ -44,7 +47,7 @@ describe('Check if  Hamburger menu is correctly rendered', () => {
         </Routes>
       </BrowserRouter>,
     );
-    const [activeMenuContainer] = document.getElementsByClassName('hamburger__menu--active');
+    const activeMenuContainer = document.querySelector('.hamburger__menu--active');
     expect(activeMenuContainer).toBeFalsy();
   });
 });
